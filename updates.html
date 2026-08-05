@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="ROOTED317 Updates - Watch our latest church updates and video messages. ROOTED317 Church, coming soon."
+  />
+  <title>ROOTED317 Updates</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --gold: #c99a52;
+      --gold-light: #efd29d;
+      --dark: #071418;
+      --navy: #10252c;
+      --cream: #f8f5ee;
+      --white: #ffffff;
+      --muted: rgba(255, 255, 255, 0.7);
+      --transition: 300ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(201, 154, 82, 0.12), transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(45, 125, 110, 0.14), transparent 50%),
+        var(--dark);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .texture {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 70px 70px;
+      inset: 0;
+      pointer-events: none;
+      position: fixed;
+      z-index: 0;
+    }
+
+    .container {
+      margin-inline: auto;
+      max-width: 900px;
+      padding-inline: 24px;
+      position: relative;
+      width: 100%;
+      z-index: 2;
+    }
+
+    /* Header */
+    .header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding-block: 28px;
+    }
+
+    .brand {
+      align-items: center;
+      display: inline-flex;
+      gap: 13px;
+    }
+
+    .brand-icon {
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      display: flex;
+      font-size: 1.3rem;
+      height: 44px;
+      justify-content: center;
+      transition: transform var(--transition);
+      width: 44px;
+    }
+
+    .brand:hover .brand-icon {
+      transform: rotate(10deg);
+    }
+
+    .brand strong,
+    .brand small {
+      display: block;
+      line-height: 1.1;
+    }
+
+    .brand strong {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+    }
+
+    .brand small {
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
+    .back-link {
+      border: 1px solid rgba(239, 210, 157, 0.5);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 10px 18px;
+      text-transform: uppercase;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .back-link:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* Hero heading */
+    .page-hero {
+      padding: 45px 0 55px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .page-hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .page-hero h1 span {
+      color: var(--gold-light);
+      display: block;
+      font-style: italic;
+    }
+
+    .page-hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 20px auto 0;
+      max-width: 520px;
+    }
+
+    /* Coming soon badge */
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(201, 154, 82, 0.12);
+      border: 1px solid rgba(201, 154, 82, 0.4);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      margin-top: 26px;
+      padding: 10px 20px;
+      text-transform: uppercase;
+    }
+
+    .coming-soon .dot {
+      animation: pulse 1.8s ease-in-out infinite;
+      background: var(--gold);
+      border-radius: 50%;
+      height: 8px;
+      width: 8px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* Video player */
+    .video-section {
+      padding-bottom: 90px;
+    }
+
+    .video-stage {
+      background:
+        linear-gradient(160deg, rgba(201, 154, 82, 0.1), transparent 40%),
+        linear-gradient(340deg, rgba(45, 125, 110, 0.12), transparent 40%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.5);
+      padding: clamp(16px, 4vw, 36px);
+      text-align: center;
+    }
+
+    .video-frame {
+      background: #000;
+      box-shadow:
+        0 0 0 1px rgba(201, 154, 82, 0.25),
+        0 30px 70px rgba(0, 0, 0, 0.55);
+      margin-inline: auto;
+      max-width: 420px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .video-frame video {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    .video-caption {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      margin-top: 22px;
+      text-transform: uppercase;
+    }
+
+    .video-caption strong {
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .video-title {
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-style: italic;
+      margin-top: 14px;
+    }
+
+    /* CTA */
+    .cta-box {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 60px;
+      padding-top: 45px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 400;
+    }
+
+    .cta-box h2 span {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 14px auto 30px;
+      max-width: 480px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .button {
+      align-items: center;
+      display: inline-flex;
+      font-size: 0.85rem;
+      font-weight: 700;
+      justify-content: center;
+      letter-spacing: 0.08em;
+      min-height: 50px;
+      padding: 13px 26px;
+      text-transform: uppercase;
+      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-gold {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .button-gold:hover {
+      background: var(--gold-light);
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      background: var(--white);
+      color: var(--dark);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.78rem;
+      padding-block: 28px;
+      text-align: center;
+    }
+
+    .footer a {
+      color: var(--gold-light);
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        padding-block: 20px;
+      }
+
+      .back-link {
+        padding: 8px 12px;
+        font-size: 0.68rem;
+      }
+
+      .page-hero {
+        padding: 30px 0 45px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="texture"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <a class="brand" href="index.html">
+        <span class="brand-icon">✝</span>
+        <span>
+          <strong>ROOTED317</strong>
+          <small>Rooted in Christ</small>
+        </span>
+      </a>
+
+      <a class="back-link" href="index.html">← Back to Home</a>
+    </header>
+
+    <!-- Hero heading -->
+    <section class="page-hero">
+      <p class="eyebrow">ROOTED317 Updates</p>
+      <h1>
+        Church coming
+        <span>very soon.</span>
+      </h1>
+      <p>
+        We are so excited to launch. Watch this message from our
+        leadership and stay connected for updates.
+      </p>
+      <span class="coming-soon">
+        <span class="dot"></span>
+        Coming Soon
+      </span>
+    </section>
+
+    <!-- Video -->
+    <section class="video-section">
+      <div class="video-stage">
+        <div class="video-frame">
+          <video controls playsinline preload="metadata" poster="ROOTED-logo.jpg">
+            <source src="rooted-updates.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <p class="video-caption">
+          <strong>First Message</strong> • A word from ROOTED317
+        </p>
+
+        <h2 class="video-title">
+          "We can't wait to grow with you."
+        </h2>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-box">
+        <h2>
+          Get ready. Something good is
+          <span>rooted here.</span>
+        </h2>
+        <p>
+          Follow us on YouTube for more updates, or reach out to learn
+          more about ROOTED317 and how you can be part of our launch.
+        </p>
+
+        <div class="cta-buttons">
+          <a class="button button-gold" href="https://www.youtube.com/live/7pUGcycP3KI" target="_blank" rel="noopener">
+            ▶ Subscribe on YouTube
+          </a>
+          <a class="button button-outline" href="mailto:r317rooted@gmail.com">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>
+      © <span id="currentYear"></span> ROOTED317 Church. All rights reserved. ·
+      <a href="mailto:r317rooted@gmail.com">r317rooted@gmail.com</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
