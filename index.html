@@ -513,109 +513,69 @@
 
           <!-- Card payment -->
           <form class="giving-form" id="givingCardForm" data-giving-panel="card">
-            <div class="giving-step">
-              <h3 class="giving-step-title">1. Choose your gift</h3>
+            <div class="giving-quick-row">
+              <div class="giving-step">
+                <h3 class="giving-step-title">Amount</h3>
 
-              <div class="giving-amounts">
-                <button class="giving-amount" type="button" data-amount="10">$10</button>
-                <button class="giving-amount" type="button" data-amount="25">$25</button>
-                <button class="giving-amount" type="button" data-amount="50">$50</button>
-                <button class="giving-amount" type="button" data-amount="100">$100</button>
-                <button class="giving-amount" type="button" data-amount="250">$250</button>
-                <button class="giving-amount is-custom" type="button" data-custom>Custom</button>
-              </div>
-
-              <div class="giving-custom hidden" id="givingCustom">
-                <label for="givingCustomAmount">Custom amount ($)</label>
-                <input type="number" id="givingCustomAmount" min="1" placeholder="Enter amount" />
-              </div>
-            </div>
-
-            <div class="giving-step">
-              <h3 class="giving-step-title">2. Gift frequency</h3>
-
-              <div class="giving-frequency">
-                <button class="giving-frequency-option is-active" type="button" data-frequency="once">
-                  One Time
-                </button>
-                <button class="giving-frequency-option" type="button" data-frequency="monthly">
-                  Monthly
-                </button>
-              </div>
-            </div>
-
-            <div class="giving-step">
-              <h3 class="giving-step-title">3. Where should your gift go?</h3>
-
-              <select class="giving-select" id="givingFund">
-                <option value="general">General Fund</option>
-                <option value="missions">Missions & Outreach</option>
-                <option value="building">Building Fund</option>
-                <option value="youth">Youth & Children</option>
-                <option value="benevolence">Benevolence</option>
-              </select>
-            </div>
-
-            <div class="giving-step">
-              <h3 class="giving-step-title">4. Card details</h3>
-
-              <div class="giving-form-row">
-                <div class="giving-form-group">
-                  <label for="givingName">Name on card</label>
-                  <input type="text" id="givingName" placeholder="Full name as shown on card" />
+                <div class="giving-amounts">
+                  <button class="giving-amount is-active" type="button" data-amount="25">$25</button>
+                  <button class="giving-amount" type="button" data-amount="50">$50</button>
+                  <button class="giving-amount" type="button" data-amount="100">$100</button>
+                  <button class="giving-amount" type="button" data-amount="250">$250</button>
+                  <button class="giving-amount is-custom" type="button" data-custom>Custom</button>
                 </div>
+
+                <div class="giving-custom hidden" id="givingCustom">
+                  <label for="givingCustomAmount">Custom amount ($)</label>
+                  <input type="number" id="givingCustomAmount" min="1" placeholder="Enter amount" />
+                </div>
+              </div>
+
+              <div class="giving-step">
+                <h3 class="giving-step-title">Frequency</h3>
+
+                <div class="giving-frequency">
+                  <button class="giving-frequency-option is-active" type="button" data-frequency="once">
+                    One Time
+                  </button>
+                  <button class="giving-frequency-option" type="button" data-frequency="monthly">
+                    Monthly
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="giving-form-group">
+              <label for="givingName">Name</label>
+              <input type="text" id="givingName" placeholder="Full name" />
+            </div>
+
+            <div class="giving-form-group">
+              <label for="givingCardNumber">Card number</label>
+              <input type="text" id="givingCardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" />
+              <div class="giving-card-badges">
+                <span class="giving-card-badge">VISA</span>
+                <span class="giving-card-badge">Mastercard</span>
+                <span class="giving-card-badge">AMEX</span>
+                <span class="giving-card-badge">Discover</span>
+              </div>
+            </div>
+
+            <div class="giving-form-row">
+              <div class="giving-form-group">
+                <label for="givingExpiry">Expiry</label>
+                <input type="text" id="givingExpiry" placeholder="MM/YY" />
               </div>
 
               <div class="giving-form-group">
-                <label for="givingCardNumber">Card number</label>
-                <input type="text" id="givingCardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" />
-                <div class="giving-card-badges">
-                  <span class="giving-card-badge">VISA</span>
-                  <span class="giving-card-badge">Mastercard</span>
-                  <span class="giving-card-badge">AMEX</span>
-                  <span class="giving-card-badge">Discover</span>
-                </div>
-              </div>
-
-              <div class="giving-form-row">
-                <div class="giving-form-group">
-                  <label for="givingExpiry">Expiry date</label>
-                  <input type="text" id="givingExpiry" placeholder="MM/YY" />
-                </div>
-
-                <div class="giving-form-group">
-                  <label for="givingCvc">CVC</label>
-                  <input type="text" id="givingCvc" placeholder="123" />
-                </div>
+                <label for="givingCvc">CVC</label>
+                <input type="text" id="givingCvc" placeholder="123" />
               </div>
             </div>
 
-            <div class="giving-step">
-              <h3 class="giving-step-title">5. Your details</h3>
-
-              <div class="giving-form-row">
-                <div class="giving-form-group">
-                  <label for="givingFirstName">First name</label>
-                  <input type="text" id="givingFirstName" placeholder="First name" />
-                </div>
-
-                <div class="giving-form-group">
-                  <label for="givingLastName">Last name</label>
-                  <input type="text" id="givingLastName" placeholder="Last name" />
-                </div>
-              </div>
-
-              <div class="giving-form-group">
-                <label for="givingEmail">Email address</label>
-                <input type="email" id="givingEmail" placeholder="you@example.com" />
-              </div>
-
-              <div class="giving-form-group giving-anonymous">
-                <label>
-                  <input type="checkbox" id="givingAnonymous" />
-                  Give anonymously
-                </label>
-              </div>
+            <div class="giving-form-group">
+              <label for="givingEmail">Email</label>
+              <input type="email" id="givingEmail" placeholder="you@example.com" />
             </div>
 
             <button type="submit" class="button button-primary giving-submit" id="givingSubmit">

@@ -477,7 +477,6 @@ function initializeGivingWidget() {
   const givingFrequencies = document.querySelectorAll(".giving-frequency-option");
   const givingCardForm = document.getElementById("givingCardForm");
   const givingMessage = document.getElementById("givingMessage");
-  const givingAnonymous = document.getElementById("givingAnonymous");
 
   let selectedAmount = 25;
 
@@ -561,11 +560,8 @@ function initializeGivingWidget() {
     givingCardForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const firstName = document.getElementById("givingFirstName");
-      const lastName = document.getElementById("givingLastName");
       const email = document.getElementById("givingEmail");
       const name = document.getElementById("givingName");
-      const fund = document.getElementById("givingFund");
 
       if (
         selectedAmount <= 0 ||
@@ -573,8 +569,6 @@ function initializeGivingWidget() {
         !cardNumber.value.trim() ||
         !expiry.value.trim() ||
         !cvc.value.trim() ||
-        !firstName.value.trim() ||
-        !lastName.value.trim() ||
         !email.value.trim()
       ) {
         if (givingMessage) {
@@ -587,8 +581,8 @@ function initializeGivingWidget() {
       const frequency = document.querySelector(".giving-frequency-option.is-active")?.dataset.frequency || "once";
 
       if (givingMessage) {
-        const person = givingAnonymous.checked ? "Friend" : `${firstName.value.trim()} ${lastName.value.trim()}`;
-        givingMessage.textContent = `Thank you${givingAnonymous.checked ? "" : `, ${person}`}! Your $${selectedAmount} ${frequency === "monthly" ? "monthly " : ""}gift to the ${fund.value.replace("-", " ")} has been received. A receipt will be emailed to you.`;
+        const person = name.value.trim();
+        givingMessage.textContent = `Thank you, ${person}! Your $${selectedAmount} ${frequency === "monthly" ? "monthly " : ""}gift has been received. A receipt will be emailed to you.`;
         givingMessage.style.color = "#38745b";
       }
 

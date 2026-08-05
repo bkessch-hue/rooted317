@@ -1283,11 +1283,22 @@ h3 {
 }
 
 .giving-form {
-  padding: 30px;
+  padding: 26px;
 }
 
 .giving-step {
   margin-bottom: 26px;
+}
+
+.giving-quick-row {
+  align-items: start;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1.6fr 1fr;
+}
+
+.giving-quick-row .giving-step {
+  margin-bottom: 0;
 }
 
 .giving-step-title {
@@ -1970,6 +1981,10 @@ h3 {
 @media (max-width: 680px) {
   .section {
     padding-block: 80px;
+  }
+
+  .giving-quick-row {
+    grid-template-columns: 1fr;
   }
 
   .giving-form {
