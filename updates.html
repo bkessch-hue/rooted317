@@ -75,8 +75,29 @@
     .header {
       align-items: center;
       display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
       justify-content: space-between;
       padding-block: 28px;
+    }
+
+    .page-nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .page-nav a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: color var(--transition);
+    }
+
+    .page-nav a:hover,
+    .page-nav a.is-active {
+      color: var(--gold);
     }
 
     .brand {
@@ -381,7 +402,12 @@
         </span>
       </a>
 
-      <a class="back-link" href="index.html">← Back to Home</a>
+      <nav class="page-nav">
+        <a href="index.html">Home</a>
+        <a href="meet-the-family.html">Meet the Family</a>
+        <a href="updates.html" class="is-active">Updates</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </header>
 
     <!-- Hero heading -->

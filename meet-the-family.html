@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Meet the Pastoral Family of ROOTED317 Church — Pastor Antonio Mansogo, Pastor Ruth Mansogo, and their family. Serving God. Loving People. Growing Together."
+  />
+  <title>Meet the Family — ROOTED317 Church</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --gold: #c99a52;
+      --gold-light: #efd29d;
+      --dark: #071418;
+      --navy: #10252c;
+      --cream: #f8f5ee;
+      --white: #ffffff;
+      --muted: rgba(255, 255, 255, 0.7);
+      --border: rgba(255,255,255,0.1);
+      --transition: 300ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(201, 154, 82, 0.12), transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(45, 125, 110, 0.14), transparent 50%),
+        var(--dark);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .texture {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 70px 70px;
+      inset: 0;
+      pointer-events: none;
+      position: fixed;
+      z-index: 0;
+    }
+
+    .container {
+      margin-inline: auto;
+      max-width: 960px;
+      padding-inline: 24px;
+      position: relative;
+      width: 100%;
+      z-index: 2;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Header */
+    .header {
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 20, 24, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .page-nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .page-nav a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: color var(--transition);
+    }
+
+    .page-nav a:hover,
+    .page-nav a.is-active {
+      color: var(--gold);
+    }
+
+    .brand {
+      align-items: center;
+      display: inline-flex;
+      gap: 13px;
+    }
+
+    .brand-icon {
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: flex;
+      font-size: 1.3rem;
+      height: 44px;
+      justify-content: center;
+      width: 44px;
+      transition: transform var(--transition);
+    }
+
+    .brand:hover .brand-icon { transform: scale(1.08); }
+
+    .brand-text strong {
+      color: var(--gold);
+      display: block;
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+      line-height: 1.2;
+    }
+
+    .brand-text small {
+      color: var(--muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: color var(--transition);
+    }
+
+    .back-link:hover { color: var(--gold); }
+
+    /* Hero */
+    .page-hero {
+      padding: 80px 0 50px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .page-hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .page-hero .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    /* Family Hero Photo */
+    .family-hero-photo {
+      margin: 40px auto 0;
+      max-width: 860px;
+    }
+
+    .family-hero-photo img {
+      border-radius: 14px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
+
+    /* Profile Cards — shared layout */
+    .profiles-grid {
+      display: grid;
+      gap: 48px;
+      margin: 72px auto;
+      max-width: 860px;
+    }
+
+    .profile-card {
+      align-items: start;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      display: grid;
+      gap: 40px;
+      padding: 44px;
+      transition: box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .profile-card:hover {
+      border-color: rgba(201,154,82,0.25);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .profile-card.reverse {
+      direction: rtl;
+    }
+
+    .profile-card.reverse > * {
+      direction: ltr;
+    }
+
+    .profile-portrait {
+      flex-shrink: 0;
+    }
+
+    .profile-portrait img {
+      aspect-ratio: 4 / 5;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+      object-fit: cover;
+      object-position: center top;
+      width: 100%;
+    }
+
+    .profile-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 200px;
+    }
+
+    .profile-role {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .profile-content h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .profile-content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* Family Members Grid */
+    .family-section-heading {
+      text-align: center;
+      margin: 80px 0 40px;
+    }
+
+    .family-section-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .family-section-heading p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .family-grid {
+      display: grid;
+      gap: 28px;
+      margin: 0 auto 80px;
+      max-width: 860px;
+    }
+
+    .member-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+
+    .member-card:hover {
+      border-color: rgba(201,154,82,0.25);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transform: translateY(-3px);
+    }
+
+    .member-card img {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      width: 100%;
+    }
+
+    .member-card-info {
+      padding: 22px 24px;
+    }
+
+    .member-card-info h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .member-card-info p {
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* Closing */
+    .closing-section {
+      padding: 80px 0 100px;
+      text-align: center;
+    }
+
+    .closing-section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .closing-section h2 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .closing-section p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 40px;
+      max-width: 660px;
+      margin-inline: auto;
+    }
+
+    .closing-section .scripture {
+      border-top: 1px solid var(--border);
+      color: var(--gold);
+      display: inline-block;
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      padding-top: 24px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-links a {
+      color: var(--muted);
+      font-size: 0.78rem;
+      transition: color var(--transition);
+    }
+
+    footer .footer-links a:hover { color: var(--gold); }
+
+    /* Fade-up animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-nav { gap: 16px; }
+      .page-nav a { font-size: 0.76rem; }
+
+      .profile-card {
+        grid-template-columns: 1fr;
+        padding: 28px;
+        gap: 28px;
+      }
+
+      .profile-card.reverse {
+        direction: ltr;
+      }
+
+      .profile-content {
+        min-height: auto;
+      }
+
+      .page-hero { padding: 56px 0 36px; }
+
+      .family-hero-photo img { border-radius: 10px; }
+    }
+
+    @media (max-width: 600px) {
+      .page-nav { gap: 14px; }
+      .page-nav a { font-size: 0.72rem; }
+
+      .family-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card { padding: 22px; }
+
+      .closing-section { padding: 56px 0 72px; }
+    }
+
+    @media (min-width: 601px) and (max-width: 900px) {
+      .family-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 901px) {
+      .profile-card {
+        grid-template-columns: 280px 1fr;
+      }
+
+      .family-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="texture"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <a class="brand" href="index.html">
+        <span class="brand-icon">✝</span>
+        <span class="brand-text">
+          <strong>ROOTED317</strong>
+          <small>Rooted in Christ</small>
+        </span>
+      </a>
+
+      <nav class="page-nav">
+        <a href="index.html">Home</a>
+        <a href="meet-the-family.html" class="is-active">Meet the Family</a>
+        <a href="updates.html">Updates</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="page-hero">
+      <p class="eyebrow">Meet the Family</p>
+      <h1>Meet the <em>Pastoral Family</em></h1>
+      <p class="subtitle">Serving God. Loving People. Growing Together.</p>
+    </section>
+
+    <!-- Family Hero Photo -->
+    <div class="family-hero-photo fade-up">
+      <img
+        src="images/family-hero.jpg"
+        alt="The Mansogo pastoral family of ROOTED317 Church"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <!-- Profiles Section -->
+  <div class="container">
+    <div class="profiles-grid" id="profilesGrid"></div>
+  </div>
+
+  <!-- Family Members Section -->
+  <div class="container">
+    <div class="family-section-heading fade-up">
+      <h2>Our <em>Family</em></h2>
+      <p>The heart of our ministry begins at home.</p>
+    </div>
+
+    <div class="family-grid" id="familyGrid"></div>
+  </div>
+
+  <!-- Closing Section -->
+  <section class="closing-section fade-up">
+    <div class="container">
+      <h2>More Than a Church — <em>A Family</em></h2>
+      <p>
+        At ROOTED317, ministry is more than what happens on Sunday. We believe in
+        serving God together, loving people, strengthening families, and building
+        a community rooted in Christ.
+      </p>
+      <span class="scripture">
+        "Rooted and built up in Him…" — Colossians 2:7
+      </span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="currentYear"></span> ROOTED317 Church. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="meet-the-family.html">Meet the Family</a>
+        <a href="updates.html">Updates</a>
+        <a href="mailto:r317rooted@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Family Data ──────────────────────────────────────────────
+    // Edit this array to add, remove, or update family members.
+    // imagePosition: controls how the image is cropped (CSS object-position).
+
+    const pastors = [
+      {
+        name: "Pastor Antonio Mansogo",
+        role: "Senior Pastor / Lead Pastor",
+        image: "images/pastor-antonio.jpg",
+        imagePosition: "center top",
+        bio: "Pastor Antonio Mansogo is the founder and Senior Pastor of ROOTED317 Church. With a heart for evangelism, discipleship, and community transformation, he is dedicated to raising a generation rooted in Christ. His ministry is marked by passionate preaching, pastoral care, and a deep commitment to seeing lives changed by the Gospel."
+      },
+      {
+        name: "Pastor Ruth Mansogo",
+        role: "First Lady / Ministry Leader",
+        image: "images/pastor-ruth.jpg",
+        imagePosition: "center top",
+        bio: "Pastor Ruth Mansogo serves alongside her husband as a Ministry Leader and First Lady of ROOTED317 Church. With a warm and compassionate spirit, she is passionate about women's ministry, mentorship, and building a welcoming community where every person feels valued and loved. Her leadership reflects grace, faith, and a heart for service."
+      }
+    ];
+
+    const familyMembers = [
+      {
+        name: "Rooted Pastoral Family",
+        image: "images/family-member-1.jpg",
+        imagePosition: "center top",
+        description: "Member of the Pastoral Family"
+      },
+      {
+        name: "The Mansogo Family",
+        image: "images/family-member-2.jpg",
+        imagePosition: "center top",
+        description: "Member of the Pastoral Family"
+      }
+    ];
+
+    // ── Render Functions ─────────────────────────────────────────
+
+    function createProfileCard(member, index) {
+      const reverse = index % 2 !== 0;
+      const card = document.createElement("div");
+      card.className = `profile-card fade-up${reverse ? " reverse" : ""}`;
+      card.innerHTML = `
+        <div class="profile-portrait">
+          <img
+            src="${member.image}"
+            alt="Portrait of ${member.name}"
+            style="object-position: ${member.imagePosition || "center top"}"
+            loading="lazy"
+          />
+        </div>
+        <div class="profile-content">
+          <p class="profile-role">${member.role}</p>
+          <h2>${member.name}</h2>
+          <p>${member.bio}</p>
+        </div>
+      `;
+      return card;
+    }
+
+    function createMemberCard(member) {
+      const card = document.createElement("div");
+      card.className = "member-card fade-up";
+      card.innerHTML = `
+        <img
+          src="${member.image}"
+          alt="Photo of ${member.name}"
+          style="object-position: ${member.imagePosition || "center top"}"
+          loading="lazy"
+        />
+        <div class="member-card-info">
+          <h3>${member.name}</h3>
+          <p>${member.description}</p>
+        </div>
+      `;
+      return card;
+    }
+
+    function renderPage() {
+      const profilesGrid = document.getElementById("profilesGrid");
+      const familyGrid = document.getElementById("familyGrid");
+
+      pastors.forEach((pastor, i) => {
+        profilesGrid.appendChild(createProfileCard(pastor, i));
+      });
+
+      familyMembers.forEach((member) => {
+        familyGrid.appendChild(createMemberCard(member));
+      });
+
+      // Footer year
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    }
+
+    // ── Scroll Reveal ────────────────────────────────────────────
+
+    function initReveal() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+    }
+
+    // ── Init ─────────────────────────────────────────────────────
+
+    renderPage();
+    initReveal();
+  </script>
+</body>
+</html>
