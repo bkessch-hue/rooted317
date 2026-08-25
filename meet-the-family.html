@@ -190,15 +190,21 @@
     .family-hero-photo {
       margin: 40px auto 0;
       max-width: 860px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 14px;
+      overflow: hidden;
     }
 
     .family-hero-photo img {
       border-radius: 14px;
       box-shadow: 0 30px 70px rgba(0,0,0,0.45);
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      object-position: center;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      margin: 0 auto;
+      max-height: 650px;
       width: 100%;
+      height: auto;
     }
 
     /* Profile Cards — shared layout */
@@ -438,7 +444,7 @@
 
       .page-hero { padding: 56px 0 36px; }
 
-      .family-hero-photo img { border-radius: 10px; }
+      .family-hero-photo img { border-radius: 10px; max-height: 400px; }
     }
 
     @media (max-width: 600px) {
