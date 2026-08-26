@@ -87,12 +87,14 @@
   var gridContainer = null;
   var currentLang = "en";
 
-  function getStoredLanguage() {
+  /* ── Storage ── */
+
+  function getStored() {
     try { return localStorage.getItem(STORAGE_KEY) || "en"; }
     catch (e) { return "en"; }
   }
 
-  function storeLanguage(code) {
+  function store(code) {
     try { localStorage.setItem(STORAGE_KEY, code); }
     catch (e) {}
   }
@@ -101,8 +103,8 @@
 
   var gtReady = false;
 
-  function loadGoogleTranslate(callback) {
-    if (gtReady) { callback(); return; }
+  function loadGoogleTranslate(cb) {
+    if (gtReady) { cb(); return; }
 
     window.googleTranslateElementInit = function () {
       new google.translate.TranslateElement({
@@ -112,7 +114,7 @@
         autoDisplay: false
       }, "google_translate_element");
       gtReady = true;
-      if (callback) callback();
+      if (cb) cb();
     };
 
     var s = document.createElement("script");
@@ -123,17 +125,13 @@
     document.head.appendChild(s);
   }
 
-  function translateTo(code) {
-    if (!code || code === "en") {
-      revertTranslation();
-      return;
-    }
+  function applyTranslation(code) {
     currentLang = code;
-    storeLanguage(code);
-    var select = document.querySelector("#google_translate_element select");
-    if (select) {
-      select.value = code;
-      select.dispatchEvent(new Event("change"));
+    store(code);
+    var sel = document.querySelector("#google_translate_element select");
+    if (sel) {
+      sel.value = code;
+      sel.dispatchEvent(new Event("change"));
     }
   }
 
@@ -141,71 +139,81 @@
     currentLang = "en";
     try { localStorage.removeItem(STORAGE_KEY); }
     catch (e) {}
-    var select = document.querySelector("#google_translate_element select");
-    if (select) {
-      select.value = "";
-      select.dispatchEvent(new Event("change"));
+    var sel = document.querySelector("#google_translate_element select");
+    if (sel) {
+      sel.value = "";
+      sel.dispatchEvent(new Event("change"));
     }
   }
 
-  /* ── UI ── */
+  /* ── Build Panel DOM (matches CSS class names exactly) ── */
 
   function createOverlay() {
     if (overlay) return;
+
     overlay = document.createElement("div");
     overlay.className = "lang-overlay";
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-label", "Select Language");
 
     var panel = document.createElement("div");
     panel.className = "lang-panel";
 
+    /* Header */
     var header = document.createElement("div");
     header.className = "lang-panel-header";
-    var title = document.createElement("h2");
+    var title = document.createElement("h3");
     title.textContent = "Select Language";
     var closeBtn = document.createElement("button");
-    closeBtn.className = "lang-close-btn";
+    closeBtn.className = "lang-panel-close";
     closeBtn.setAttribute("aria-label", "Close");
     closeBtn.innerHTML = "\u00d7";
     header.appendChild(title);
     header.appendChild(closeBtn);
 
+    /* Body wrapper */
+    var body = document.createElement("div");
+    body.className = "lang-panel-body";
+
+    /* Search */
     var searchWrap = document.createElement("div");
-    searchWrap.className = "lang-search-wrap";
+    searchWrap.className = "lang-search-wrapper";
+    var searchIcon = document.createElement("span");
+    searchIcon.className = "lang-search-icon";
+    searchIcon.textContent = "\ud83d\udd0d";
     searchInput = document.createElement("input");
     searchInput.type = "text";
     searchInput.className = "lang-search";
     searchInput.placeholder = "Search languages\u2026";
     searchInput.setAttribute("aria-label", "Search languages");
+    searchWrap.appendChild(searchIcon);
     searchWrap.appendChild(searchInput);
+    body.appendChild(searchWrap);
 
-    var gridWrap = document.createElement("div");
-    gridWrap.className = "lang-grid-wrap";
+    /* Grid */
     gridContainer = document.createElement("div");
     gridContainer.className = "lang-grid";
-    gridWrap.appendChild(gridContainer);
+    body.appendChild(gridContainer);
 
+    /* Footer */
     var footer = document.createElement("div");
     footer.className = "lang-panel-footer";
-    footer.textContent = "Powered by Google Translate";
+    var fp = document.createElement("p");
+    fp.textContent = "Powered by Google Translate";
+    footer.appendChild(fp);
 
     panel.appendChild(header);
-    panel.appendChild(searchWrap);
-    panel.appendChild(gridWrap);
+    panel.appendChild(body);
     panel.appendChild(footer);
     overlay.appendChild(panel);
     document.body.appendChild(overlay);
 
+    /* Events */
     closeBtn.addEventListener("click", closePanel);
     overlay.addEventListener("click", function (e) {
       if (e.target === overlay) closePanel();
     });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && overlay.classList.contains("is-open")) closePanel();
-    });
   }
+
+  /* ── Render Language Buttons ── */
 
   function renderGrid(query) {
     if (!gridContainer) return;
@@ -228,29 +236,26 @@
       flag.className = "lang-btn-flag";
       flag.textContent = lang.flag;
 
-      var info = document.createElement("span");
-      info.className = "lang-btn-info";
+      var text = document.createElement("span");
+      text.className = "lang-btn-text";
       var n = document.createElement("span");
       n.className = "lang-btn-name";
       n.textContent = lang.name;
       var native = document.createElement("span");
       native.className = "lang-btn-native";
       native.textContent = lang.native;
-      info.appendChild(n);
-      info.appendChild(native);
-      btn.appendChild(flag);
-      btn.appendChild(info);
+      text.appendChild(n);
+      text.appendChild(native);
 
-      if (lang.code === currentLang) btn.classList.add("is-selected");
+      btn.appendChild(flag);
+      btn.appendChild(text);
+
+      if (lang.code === currentLang) btn.classList.add("selected");
 
       btn.addEventListener("click", (function (code) {
         return function () {
-          translateTo(code);
-          currentLang = code;
-          var btns = gridContainer.querySelectorAll(".lang-btn");
-          for (var j = 0; j < btns.length; j++) {
-            btns[j].classList.toggle("is-selected", btns[j].dataset.code === code);
-          }
+          applyTranslation(code);
+          highlightSelected(code);
           setTimeout(closePanel, 200);
         };
       })(lang.code));
@@ -266,33 +271,43 @@
     }
   }
 
+  function highlightSelected(code) {
+    var btns = gridContainer.querySelectorAll(".lang-btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle("selected", btns[i].dataset.code === code);
+    }
+  }
+
+  /* ── Open / Close ── */
+
   function openPanel() {
     createOverlay();
-    currentLang = getStoredLanguage();
-    overlay.classList.add("is-open");
+    currentLang = getStored();
+    overlay.classList.add("active");
     document.body.style.overflow = "hidden";
     setTimeout(function () {
       searchInput.value = "";
       renderGrid("");
       searchInput.focus();
     }, 100);
+    document.addEventListener("keydown", onEscape);
   }
 
   function closePanel() {
     if (!overlay) return;
-    overlay.classList.remove("is-open");
+    overlay.classList.remove("active");
     document.body.style.overflow = "";
+    document.removeEventListener("keydown", onEscape);
   }
 
-  function init() {
-    /* Search filter */
-    document.addEventListener("input", function (e) {
-      if (e.target.classList && e.target.classList.contains("lang-search")) {
-        renderGrid(e.target.value);
-      }
-    });
+  function onEscape(e) {
+    if (e.key === "Escape") closePanel();
+  }
 
-    /* Inject trigger into nav */
+  /* ── Init ── */
+
+  function init() {
+    /* Inject trigger button into every .nav-menu */
     var navMenus = document.querySelectorAll(".nav-menu");
     for (var i = 0; i < navMenus.length; i++) {
       if (navMenus[i].querySelector(".lang-trigger-btn")) continue;
@@ -309,11 +324,18 @@
       navMenus[i].appendChild(btn);
     }
 
-    /* Load Google Translate and restore saved language */
+    /* Search filtering */
+    document.addEventListener("input", function (e) {
+      if (e.target.classList && e.target.classList.contains("lang-search")) {
+        renderGrid(e.target.value);
+      }
+    });
+
+    /* Load Google Translate, then restore saved language */
     loadGoogleTranslate(function () {
-      var saved = getStoredLanguage();
+      var saved = getStored();
       if (saved && saved !== "en") {
-        setTimeout(function () { translateTo(saved); }, 500);
+        setTimeout(function () { applyTranslation(saved); }, 500);
       }
     });
   }
