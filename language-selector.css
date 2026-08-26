@@ -1,0 +1,380 @@
+/* =============================================
+   ROOTED317 Church Language Selector
+   ============================================= */
+
+/* ---------- Trigger Button ---------- */
+
+.lang-trigger {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 0;
+  position: relative;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.lang-trigger::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width var(--transition);
+}
+
+.lang-trigger:hover {
+  color: var(--primary);
+}
+
+.lang-trigger:hover::after {
+  width: 100%;
+}
+
+.lang-trigger .globe {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Mobile / hamburger menu styles */
+@media (max-width: 768px) {
+  .lang-trigger {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    padding: 14px 0;
+  }
+}
+
+/* ---------- Overlay ---------- */
+
+.lang-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 20, 24, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 350ms ease;
+}
+
+.lang-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------- Panel ---------- */
+
+.lang-panel {
+  background: var(--white);
+  max-width: 680px;
+  width: calc(100% - 48px);
+  max-height: 85vh;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28),
+              0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(20px) scale(0.97);
+  transition: transform 350ms ease;
+}
+
+.lang-overlay.active .lang-panel {
+  transform: translateY(0) scale(1);
+}
+
+/* ---------- Panel Header ---------- */
+
+.lang-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.lang-panel-header h3 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.lang-panel-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--muted);
+  transition: color var(--transition), background var(--transition);
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.lang-panel-close:hover {
+  color: var(--primary);
+  background: rgba(185, 133, 69, 0.08);
+}
+
+/* ---------- Search ---------- */
+
+.lang-panel-body {
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lang-search-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.lang-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+  font-size: 0.9rem;
+}
+
+.lang-search {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text);
+  background: var(--cream);
+  outline: none;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.lang-search::placeholder {
+  color: var(--muted);
+}
+
+.lang-search:focus {
+  border-color: var(--primary);
+  background: var(--white);
+}
+
+/* ---------- Language Grid ---------- */
+
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 0;
+  overflow-y: auto;
+}
+
+/* ---------- Language Button ---------- */
+
+.lang-btn {
+  background: var(--cream);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.lang-btn:hover {
+  border-color: var(--primary);
+}
+
+.lang-btn.selected {
+  border-color: var(--primary);
+  background: rgba(185, 133, 69, 0.08);
+}
+
+.lang-btn-flag {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
+.lang-btn-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.lang-btn-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.lang-btn-native {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: block;
+  line-height: 1.3;
+}
+
+/* ---------- Panel Footer ---------- */
+
+.lang-panel-footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.lang-panel-footer p {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Hidden Google Translate Element ---------- */
+
+#google_translate_element {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ---------- Google Translate Toolbar Override ---------- */
+
+.goog-te-banner-frame,
+.goog-te-spinner-pos,
+.skiptranslate {
+  display: none !important;
+  height: 0 !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .lang-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lang-panel {
+    max-width: 100%;
+    width: calc(100% - 32px);
+    max-height: 85vh;
+    border-radius: 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .lang-panel {
+    max-width: 100%;
+    width: 100%;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .lang-overlay {
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .lang-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .lang-btn {
+    padding: 16px 16px;
+    border-radius: 10px;
+  }
+
+  .lang-btn-name {
+    font-size: 0.95rem;
+  }
+
+  .lang-btn-native {
+    font-size: 0.8rem;
+  }
+
+  .lang-panel-header {
+    padding: 18px 20px;
+  }
+
+  .lang-panel-body {
+    padding: 14px 16px;
+  }
+
+  .lang-panel-footer {
+    padding: 12px 20px;
+  }
+}
+
+/* Scrollbar styling */
+.lang-grid::-webkit-scrollbar,
+.lang-panel-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lang-grid::-webkit-scrollbar-track,
+.lang-panel-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.lang-grid::-webkit-scrollbar-thumb,
+.lang-panel-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.lang-grid::-webkit-scrollbar-thumb:hover,
+.lang-panel-body::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
