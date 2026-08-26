@@ -195,10 +195,13 @@
     .family-hero-photo img {
       width: 100%;
       max-width: 520px;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
-      display: block;
+      height: auto !important;
+      max-height: none !important;
+      min-height: 0 !important;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      display: block !important;
       margin: 0 auto;
     }
 
@@ -308,6 +311,9 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       overflow: hidden;
+      height: auto !important;
+      min-height: 0 !important;
+      display: block !important;
       transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
     }
 
@@ -319,10 +325,14 @@
 
     .member-card img {
       width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      object-position: center;
+      height: auto !important;
+      max-height: none !important;
+      min-height: 0 !important;
+      aspect-ratio: auto !important;
+      display: block !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      overflow: visible !important;
     }
 
     .member-card-info {
