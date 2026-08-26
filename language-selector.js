@@ -85,7 +85,6 @@
   var overlay = null;
   var searchInput = null;
   var gridContainer = null;
-  var currentLang = "en";
 
   /* ── Storage ── */
 
@@ -99,54 +98,39 @@
     catch (e) {}
   }
 
-  /* ── Google Translate ── */
-
-  var gtReady = false;
-
-  function loadGoogleTranslate(cb) {
-    if (gtReady) { cb(); return; }
-
-    window.googleTranslateElementInit = function () {
-      new google.translate.TranslateElement({
-        pageLanguage: "en",
-        includedLanguages: LANGUAGES.map(function (l) { return l.code; }).join(","),
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, "google_translate_element");
-      gtReady = true;
-      if (cb) cb();
-    };
-
-    var s = document.createElement("script");
-    s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    s.onerror = function () {
-      console.warn("ROOTED317: Google Translate failed to load");
-    };
-    document.head.appendChild(s);
-  }
-
-  function applyTranslation(code) {
-    currentLang = code;
-    store(code);
-    var sel = document.querySelector("#google_translate_element select");
-    if (sel) {
-      sel.value = code;
-      sel.dispatchEvent(new Event("change"));
-    }
-  }
-
-  function revertTranslation() {
-    currentLang = "en";
+  function clearStore() {
     try { localStorage.removeItem(STORAGE_KEY); }
     catch (e) {}
-    var sel = document.querySelector("#google_translate_element select");
-    if (sel) {
-      sel.value = "";
-      sel.dispatchEvent(new Event("change"));
-    }
   }
 
-  /* ── Build Panel DOM (matches CSS class names exactly) ── */
+  /* ── Google Translate via #googtrans hash ── */
+  /* Google Translate reads this hash on page load to translate. */
+  /* We set the hash then reload so the translation applies. */
+
+  function getCurrentHashLang() {
+    var hash = window.location.hash;
+    if (hash.indexOf("#googtrans/") === 0) {
+      var parts = hash.split("/");
+      if (parts.length === 3) return parts[2];
+    }
+    return "en";
+  }
+
+  function translateTo(code) {
+    if (!code || code === "en") {
+      clearStore();
+      if (getCurrentHashLang() !== "en") {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+      window.location.reload();
+      return;
+    }
+    store(code);
+    window.location.hash = "#googtrans/en/" + code;
+    window.location.reload();
+  }
+
+  /* ── Build Panel DOM ── */
 
   function createOverlay() {
     if (overlay) return;
@@ -157,7 +141,6 @@
     var panel = document.createElement("div");
     panel.className = "lang-panel";
 
-    /* Header */
     var header = document.createElement("div");
     header.className = "lang-panel-header";
     var title = document.createElement("h3");
@@ -169,11 +152,9 @@
     header.appendChild(title);
     header.appendChild(closeBtn);
 
-    /* Body wrapper */
     var body = document.createElement("div");
     body.className = "lang-panel-body";
 
-    /* Search */
     var searchWrap = document.createElement("div");
     searchWrap.className = "lang-search-wrapper";
     var searchIcon = document.createElement("span");
@@ -188,12 +169,10 @@
     searchWrap.appendChild(searchInput);
     body.appendChild(searchWrap);
 
-    /* Grid */
     gridContainer = document.createElement("div");
     gridContainer.className = "lang-grid";
     body.appendChild(gridContainer);
 
-    /* Footer */
     var footer = document.createElement("div");
     footer.className = "lang-panel-footer";
     var fp = document.createElement("p");
@@ -206,7 +185,6 @@
     overlay.appendChild(panel);
     document.body.appendChild(overlay);
 
-    /* Events */
     closeBtn.addEventListener("click", closePanel);
     overlay.addEventListener("click", function (e) {
       if (e.target === overlay) closePanel();
@@ -220,6 +198,7 @@
     gridContainer.innerHTML = "";
     var q = (query || "").toLowerCase().trim();
     var count = 0;
+    var activeLang = getCurrentHashLang();
 
     for (var i = 0; i < LANGUAGES.length; i++) {
       var lang = LANGUAGES[i];
@@ -250,13 +229,11 @@
       btn.appendChild(flag);
       btn.appendChild(text);
 
-      if (lang.code === currentLang) btn.classList.add("selected");
+      if (lang.code === activeLang) btn.classList.add("selected");
 
       btn.addEventListener("click", (function (code) {
         return function () {
-          applyTranslation(code);
-          highlightSelected(code);
-          setTimeout(closePanel, 200);
+          translateTo(code);
         };
       })(lang.code));
 
@@ -271,18 +248,10 @@
     }
   }
 
-  function highlightSelected(code) {
-    var btns = gridContainer.querySelectorAll(".lang-btn");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].classList.toggle("selected", btns[i].dataset.code === code);
-    }
-  }
-
   /* ── Open / Close ── */
 
   function openPanel() {
     createOverlay();
-    currentLang = getStored();
     overlay.classList.add("active");
     document.body.style.overflow = "hidden";
     setTimeout(function () {
@@ -331,13 +300,17 @@
       }
     });
 
-    /* Load Google Translate, then restore saved language */
-    loadGoogleTranslate(function () {
-      var saved = getStored();
-      if (saved && saved !== "en") {
-        setTimeout(function () { applyTranslation(saved); }, 500);
+    /* On page load: if stored language doesn't match URL hash, sync them */
+    var stored = getStored();
+    var hashLang = getCurrentHashLang();
+    if (stored !== hashLang) {
+      /* URL hash takes precedence — update localStorage */
+      if (hashLang !== "en") {
+        store(hashLang);
+      } else {
+        clearStore();
       }
-    });
+    }
   }
 
   if (document.readyState === "loading") {
