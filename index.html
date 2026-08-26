@@ -2,27 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <meta
-    name="description"
-    content="Welcome to Rooted317 Church. Join us for worship, community, and spiritual growth."
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Welcome to Rooted317 Church. Join us for worship, community, and spiritual growth." />
   <title>Rooted317 Church</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -30,35 +15,19 @@
   <!-- Navigation -->
   <header class="header" id="header">
     <nav class="navbar container">
-      <a href="#home" class="logo">
-          <img src="ROOTED-logo.jpg" alt="ROOTED317 Logo" class="logo-img">
-      </a>
-
-      <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
+      <a href="index.html" class="logo"><img src="ROOTED-logo.jpg" alt="ROOTED317 Logo" class="logo-img"></a>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-menu" id="navMenu">
-        <a href="index.html#home" target="_blank" rel="noopener">Home</a>
-        <a href="index.html#about" target="_blank" rel="noopener">About</a>
-        <a href="meet-the-family.html" target="_blank" rel="noopener">Meet the Family</a>
-        <a href="updates.html" target="_blank" rel="noopener">Updates</a>
-        <a href="index.html#services" target="_blank" rel="noopener">Services</a>
-        <a href="index.html#ministries" target="_blank" rel="noopener">Ministries</a>
-        <a href="index.html#sermons" target="_blank" rel="noopener">Sermons</a>
-        <a href="index.html#events" target="_blank" rel="noopener">Events</a>
-        <a href="index.html#contact" target="_blank" rel="noopener">Contact</a>
-
-        <a href="index.html#give" class="nav-button" target="_blank" rel="noopener">
-          Give Online
-        </a>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="meet-the-family.html">Meet the Family</a>
+        <a href="updates.html">Updates</a>
+        <a href="services.html">Services</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="sermons.html">Sermons</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+        <a href="give.html" class="nav-button">Give Online</a>
       </div>
     </nav>
   </header>
@@ -67,66 +36,70 @@
     <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero-overlay"></div>
-
       <div class="hero-shape hero-shape-one"></div>
       <div class="hero-shape hero-shape-two"></div>
-
       <div class="container hero-content">
-        <p class="eyebrow hero-animation">
-          You belong here
-        </p>
-
-        <h1 class="hero-animation">
-          Faith. Family.
-          <span>Purpose.</span>
-        </h1>
-
-        <p class="hero-description hero-animation">
-          Experience meaningful worship, genuine community, and a place
-          where every generation can grow in faith.
-        </p>
-
+        <p class="eyebrow hero-animation">You belong here</p>
+        <h1 class="hero-animation">Faith. Family.<span>Purpose.</span></h1>
+        <p class="hero-description hero-animation">Experience meaningful worship, genuine community, and a place where every generation can grow in faith.</p>
         <div class="hero-buttons hero-animation">
-          <a href="#services" class="button button-primary">
-            Plan Your Visit
-          </a>
-
-          <a href="#sermons" class="button button-outline">
-            Watch a Sermon
-          </a>
+          <a href="services.html" class="button button-primary">Plan Your Visit</a>
+          <a href="sermons.html" class="button button-outline">Watch a Sermon</a>
         </div>
-
         <div class="service-banner hero-animation">
           <div class="service-icon">☀</div>
-
-          <div>
-            <small>Join us this Sunday</small>
-            <strong>9:00 AM and 11:00 AM</strong>
-          </div>
-
-          <a href="#contact">
-            Get Directions →
-          </a>
+          <div><small>Join us this Sunday</small><strong>9:00 AM and 11:00 AM</strong></div>
+          <a href="contact.html">Get Directions →</a>
         </div>
       </div>
-
-      <a href="#about" class="scroll-indicator" aria-label="Scroll down">
-        <span></span>
-      </a>
     </section>
 
-    <!-- Updates / Video -->
-    <section class="section updates-section" id="updates">
+    <!-- Sunday Service Preview -->
+    <section class="section services-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Worship with us</p>
+          <h2>Sunday Services</h2>
+          <p>Join us in person or online for an uplifting worship experience.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="card-icon">☀</div>
+            <h3>Sunday Morning</h3>
+            <p class="service-time">9:00 AM</p>
+            <p>Traditional worship, prayer, and a message for the entire family.</p>
+            <span>Children's ministry available</span>
+          </article>
+          <article class="service-card featured reveal">
+            <div class="popular-label">Most Popular</div>
+            <div class="card-icon">♥</div>
+            <h3>Sunday Celebration</h3>
+            <p class="service-time">11:00 AM</p>
+            <p>Contemporary worship, practical teaching, and vibrant community.</p>
+            <span>Children and youth programs available</span>
+          </article>
+          <article class="service-card reveal">
+            <div class="card-icon">★</div>
+            <h3>Wednesday Night</h3>
+            <p class="service-time">7:00 PM</p>
+            <p>Bible study, prayer, youth ministry, and small-group connection.</p>
+            <span>All ages are welcome</span>
+          </article>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="services.html" class="button button-primary">View All Service Details →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Updates Preview -->
+    <section class="section updates-section">
       <div class="container">
         <div class="section-heading reveal">
           <p class="eyebrow">ROOTED317 Updates</p>
           <h2>Church Coming <span>Very Soon</span></h2>
-          <p>
-            Watch our first message from the ROOTED317 family. We are
-            excited to launch and grow together with you.
-          </p>
+          <p>Watch our first message from the ROOTED317 family. We are excited to launch and grow together with you.</p>
         </div>
-
         <div class="updates-video reveal">
           <div class="updates-video-stage">
             <div class="updates-video-frame">
@@ -135,591 +108,170 @@
                 Your browser does not support the video tag.
               </video>
             </div>
-
             <div class="updates-video-caption">
-              <span class="coming-soon-badge">
-                <span class="dot"></span>
-                Coming Soon
-              </span>
-
+              <span class="coming-soon-badge"><span class="dot"></span>Coming Soon</span>
               <h3>"We can't wait to grow with you."</h3>
-
               <p>First Message • A word from ROOTED317</p>
-
-              <a
-                href="https://www.youtube.com/live/7pUGcycP3KI"
-                target="_blank"
-                rel="noopener"
-                class="button button-primary updates-button"
-              >
-                ▶ Subscribe on YouTube
-              </a>
+              <a href="https://www.youtube.com/live/7pUGcycP3KI" target="_blank" rel="noopener" class="button button-primary updates-button">▶ Subscribe on YouTube</a>
             </div>
           </div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="updates.html" class="button button-dark">See All Updates →</a>
         </div>
       </div>
     </section>
 
-    <!-- Welcome -->
-    <section class="section welcome-section" id="about">
+    <!-- Welcome / About Preview -->
+    <section class="section welcome-section">
       <div class="container two-column">
         <div class="image-composition reveal-left">
           <div class="main-image">
-            <img
-              src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1200&q=80"
-              alt="People worshiping together in church"
-            />
+            <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1200&q=80" alt="People worshiping together in church" />
           </div>
-
           <div class="experience-card floating-card">
             <strong>25+</strong>
             <span>Years serving our community</span>
           </div>
-
           <div class="image-decoration"></div>
         </div>
-
         <div class="welcome-content reveal-right">
           <p class="eyebrow">Welcome home</p>
-
-          <h2>
-            A church where everyone can
-            <span>belong and grow</span>
-          </h2>
-
-          <p>
-            Rooted317 Church is a welcoming family of believers
-            committed to loving God, serving people, and transforming our
-            community through the message of Jesus Christ.
-          </p>
-
-          <p>
-            Whether you are exploring faith for the first time or looking
-            for a church family, there is a place for you here.
-          </p>
-
+          <h2>A church where everyone can <span>belong and grow</span></h2>
+          <p>Rooted317 Church is a welcoming family of believers committed to loving God, serving people, and transforming our community through the message of Jesus Christ.</p>
+          <p>Whether you are exploring faith for the first time or looking for a church family, there is a place for you here.</p>
           <div class="feature-list">
             <div class="feature-item">
               <div class="check-icon">✓</div>
-
-              <div>
-                <strong>Come as you are</strong>
-                <p>Everyone is welcome, no matter your background.</p>
-              </div>
+              <div><strong>Come as you are</strong><p>Everyone is welcome, no matter your background.</p></div>
             </div>
-
             <div class="feature-item">
               <div class="check-icon">✓</div>
-
-              <div>
-                <strong>Grow in community</strong>
-                <p>Build meaningful relationships and strengthen your faith.</p>
-              </div>
+              <div><strong>Grow in community</strong><p>Build meaningful relationships and strengthen your faith.</p></div>
             </div>
           </div>
-
-          <a href="#ministries" class="text-link">
-            Discover our church story →
-          </a>
+          <a href="about.html" class="text-link">Discover our church story →</a>
         </div>
       </div>
     </section>
 
-    <!-- Service Times -->
-    <section class="section services-section" id="services">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Worship with us</p>
-          <h2>Service Times</h2>
-          <p>
-            Join us in person or online for an uplifting worship experience.
-          </p>
-        </div>
-
-        <div class="service-grid">
-          <article class="service-card reveal">
-            <div class="card-icon">☀</div>
-            <h3>Sunday Morning</h3>
-            <p class="service-time">9:00 AM</p>
-            <p>
-              Traditional worship, prayer, and a message for the entire family.
-            </p>
-            <span>Children's ministry available</span>
-          </article>
-
-          <article class="service-card featured reveal">
-            <div class="popular-label">Most Popular</div>
-            <div class="card-icon">♥</div>
-            <h3>Sunday Celebration</h3>
-            <p class="service-time">11:00 AM</p>
-            <p>
-              Contemporary worship, practical teaching, and vibrant community.
-            </p>
-            <span>Children and youth programs available</span>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="card-icon">★</div>
-            <h3>Wednesday Night</h3>
-            <p class="service-time">7:00 PM</p>
-            <p>
-              Bible study, prayer, youth ministry, and small-group connection.
-            </p>
-            <span>All ages are welcome</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ministries -->
-    <section class="section ministries-section" id="ministries">
+    <!-- Ministries Preview -->
+    <section class="section ministries-section">
       <div class="container">
         <div class="section-heading light reveal">
           <p class="eyebrow">Find your place</p>
           <h2>Ministries for Every Generation</h2>
-          <p>
-            Connect, grow, and serve through one of our church ministries.
-          </p>
+          <p>Connect, grow, and serve through one of our church ministries.</p>
         </div>
-
         <div class="ministry-grid">
           <article class="ministry-card reveal">
-            <img
-              src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80"
-              alt="Children participating in an activity"
-            />
-
+            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80" alt="Children participating in an activity" />
             <div class="ministry-content">
               <span>ROOTED317 Kids</span>
               <h3>Children's Ministry</h3>
-              <p>
-                A safe, joyful environment where children learn about God.
-              </p>
-              <a href="#contact">Learn More →</a>
+              <p>A safe, joyful environment where children learn about God.</p>
+              <a href="ministries.html">Learn More →</a>
             </div>
           </article>
-
           <article class="ministry-card reveal">
-            <img
-              src="youth-ministry.jpg"
-              alt="ROOTED317 Youth Ministry"
-            />
-
+            <img src="youth-ministry.jpg" alt="ROOTED317 Youth Ministry" />
             <div class="ministry-content">
               <span>Next Generation</span>
               <h3>Youth Ministry</h3>
-              <p>
-                Helping young people develop faith, friendships, and purpose.
-              </p>
-              <a href="#contact">Learn More →</a>
+              <p>Helping young people develop faith, friendships, and purpose.</p>
+              <a href="ministries.html">Learn More →</a>
             </div>
           </article>
-
           <article class="ministry-card reveal">
             <div class="ministry-gallery">
-              <img
-                src="small-groups-1.jpg"
-                alt="Small Groups gathering 1"
-              />
-              <img
-                src="small-groups-2.jpg"
-                alt="Small Groups gathering 2"
-              />
+              <img src="small-groups-1.jpg" alt="Small Groups gathering 1" />
+              <img src="small-groups-2.jpg" alt="Small Groups gathering 2" />
             </div>
-
             <div class="ministry-content">
               <span>Life Together</span>
               <h3>Small Groups</h3>
-              <p>
-                Meaningful relationships, Bible study, support, and prayer.
-              </p>
-              <a href="#contact">Find a Group →</a>
+              <p>Meaningful relationships, Bible study, support, and prayer.</p>
+              <a href="ministries.html">Find a Group →</a>
             </div>
           </article>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="ministries.html" class="button button-primary">Explore All Ministries →</a>
         </div>
       </div>
     </section>
 
-    <!-- Sermons -->
-    <section class="section sermons-section" id="sermons">
+    <!-- Sermons Preview -->
+    <section class="section sermons-section">
       <div class="container">
         <div class="heading-row reveal">
           <div>
             <p class="eyebrow">Watch and listen</p>
             <h2>Latest Sermons</h2>
           </div>
-
-          <a href="#" class="button button-dark">
-            View All Messages
-          </a>
+          <a href="sermons.html" class="button button-dark">View All Messages</a>
         </div>
-
         <div class="sermon-grid">
           <article class="sermon-card reveal">
             <div class="sermon-image">
-              <img
-                src="https://img.youtube.com/vi/CoihzxY6ALU/maxresdefault.jpg"
-                alt="Walking by Faith sermon video thumbnail"
-              />
-
-              <a
-                class="play-button"
-                href="https://www.youtube.com/live/CoihzxY6ALU"
-                target="_blank"
-                rel="noopener"
-                aria-label="Play sermon on YouTube"
-              >
-                ▶
-              </a>
+              <img src="https://img.youtube.com/vi/CoihzxY6ALU/maxresdefault.jpg" alt="Walking by Faith sermon video thumbnail" />
+              <a class="play-button" href="https://www.youtube.com/live/CoihzxY6ALU" target="_blank" rel="noopener" aria-label="Play sermon on YouTube">▶</a>
             </div>
-
             <div class="sermon-content">
               <span>Faith Series</span>
               <h3>Walking by Faith, Not by Sight</h3>
               <p>Pastor Michael Johnson • July 19, 2026</p>
-              <a
-                class="sermon-youtube-link"
-                href="https://www.youtube.com/live/CoihzxY6ALU"
-                target="_blank"
-                rel="noopener"
-              >
-                Watch on YouTube →
-              </a>
+              <a class="sermon-youtube-link" href="https://www.youtube.com/live/CoihzxY6ALU" target="_blank" rel="noopener">Watch on YouTube →</a>
             </div>
           </article>
-
           <article class="sermon-card reveal">
             <div class="sermon-image">
-              <img
-                src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=900&q=80"
-                alt="Sunlight through peaceful trees"
-              />
-
-              <button class="play-button" aria-label="Play sermon">
-                ▶
-              </button>
+              <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=900&q=80" alt="Sunlight through peaceful trees" />
+              <button class="play-button" aria-label="Play sermon">▶</button>
             </div>
-
             <div class="sermon-content">
               <span>Purpose Series</span>
               <h3>Created for a Greater Purpose</h3>
               <p>Pastor Sarah Williams • July 12, 2026</p>
             </div>
           </article>
-
-          <article class="sermon-card reveal">
-            <div class="sermon-image">
-              <img
-                src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=900&q=80"
-                alt="People standing together at sunset"
-              />
-
-              <button class="play-button" aria-label="Play sermon">
-                ▶
-              </button>
-            </div>
-
-            <div class="sermon-content">
-              <span>Community Series</span>
-              <h3>Better Together</h3>
-              <p>Pastor Michael Johnson • July 5, 2026</p>
-            </div>
-          </article>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="sermons.html" class="button button-primary">Browse All Sermons →</a>
         </div>
       </div>
     </section>
 
-    <!-- Events -->
-    <section class="section events-section" id="events">
+    <!-- Events Preview -->
+    <section class="section events-section">
       <div class="container">
         <div class="section-heading reveal">
           <p class="eyebrow">Get connected</p>
           <h2>Upcoming Events</h2>
         </div>
-
         <div class="event-list">
           <article class="event-item reveal">
-            <div class="event-date">
-              <span>JUL</span>
-              <strong>26</strong>
-            </div>
-
+            <div class="event-date"><span>JUL</span><strong>26</strong></div>
             <div class="event-information">
               <p>Saturday • 10:00 AM</p>
               <h3>Community Food Distribution</h3>
               <span>ROOTED317 Church Parking Lot</span>
             </div>
-
-            <a href="#contact">Details →</a>
+            <a href="events.html">Details →</a>
           </article>
-
           <article class="event-item reveal">
-            <div class="event-date">
-              <span>AUG</span>
-              <strong>02</strong>
-            </div>
-
+            <div class="event-date"><span>AUG</span><strong>02</strong></div>
             <div class="event-information">
               <p>Sunday • 1:00 PM</p>
               <h3>Welcome Lunch for New Families</h3>
               <span>Fellowship Hall</span>
             </div>
-
-            <a href="#contact">Register →</a>
-          </article>
-
-          <article class="event-item reveal">
-            <div class="event-date">
-              <span>AUG</span>
-              <strong>14</strong>
-            </div>
-
-            <div class="event-information">
-              <p>Friday • 6:30 PM</p>
-              <h3>Youth Worship Night</h3>
-              <span>Main Sanctuary</span>
-            </div>
-
-            <a href="#contact">Details →</a>
+            <a href="events.html">Register →</a>
           </article>
         </div>
-      </div>
-    </section>
-
-    <!-- Giving -->
-    <section class="give-section" id="give">
-      <div class="give-background"></div>
-
-      <div class="container give-content reveal">
-        <p class="eyebrow">Make a difference</p>
-
-        <h2>Your generosity changes lives</h2>
-
-        <p>
-          Every gift helps us serve families, support missions, and share
-          hope throughout our community.
-        </p>
-
-        <div class="giving-widget">
-          <div class="giving-payment-methods">
-            <button class="giving-method is-active" data-giving-method="card" type="button">
-              <span class="giving-method-icon">💳</span>
-              Card
-            </button>
-            <button class="giving-method" data-giving-method="cashapp" type="button">
-              <span class="giving-method-icon">$</span>
-              Cash App
-            </button>
-          </div>
-
-          <!-- Card payment -->
-          <form class="giving-form" id="givingCardForm" data-giving-panel="card">
-            <div class="giving-quick-row">
-              <div class="giving-step">
-                <h3 class="giving-step-title">Amount</h3>
-
-                <div class="giving-amounts">
-                  <button class="giving-amount is-active" type="button" data-amount="25">$25</button>
-                  <button class="giving-amount" type="button" data-amount="50">$50</button>
-                  <button class="giving-amount" type="button" data-amount="100">$100</button>
-                  <button class="giving-amount" type="button" data-amount="250">$250</button>
-                  <button class="giving-amount is-custom" type="button" data-custom>Custom</button>
-                </div>
-
-                <div class="giving-custom hidden" id="givingCustom">
-                  <label for="givingCustomAmount">Custom amount ($)</label>
-                  <input type="number" id="givingCustomAmount" min="1" placeholder="Enter amount" />
-                </div>
-              </div>
-
-              <div class="giving-step">
-                <h3 class="giving-step-title">Frequency</h3>
-
-                <div class="giving-frequency">
-                  <button class="giving-frequency-option is-active" type="button" data-frequency="once">
-                    One Time
-                  </button>
-                  <button class="giving-frequency-option" type="button" data-frequency="monthly">
-                    Monthly
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="giving-form-group">
-              <label for="givingName">Name</label>
-              <input type="text" id="givingName" placeholder="Full name" />
-            </div>
-
-            <div class="giving-form-group">
-              <label for="givingCardNumber">Card number</label>
-              <input type="text" id="givingCardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" />
-              <div class="giving-card-badges">
-                <span class="giving-card-badge">VISA</span>
-                <span class="giving-card-badge">Mastercard</span>
-                <span class="giving-card-badge">AMEX</span>
-                <span class="giving-card-badge">Discover</span>
-              </div>
-            </div>
-
-            <div class="giving-form-row">
-              <div class="giving-form-group">
-                <label for="givingExpiry">Expiry</label>
-                <input type="text" id="givingExpiry" placeholder="MM/YY" />
-              </div>
-
-              <div class="giving-form-group">
-                <label for="givingCvc">CVC</label>
-                <input type="text" id="givingCvc" placeholder="123" />
-              </div>
-            </div>
-
-            <div class="giving-form-group">
-              <label for="givingEmail">Email</label>
-              <input type="email" id="givingEmail" placeholder="you@example.com" />
-            </div>
-
-            <button type="submit" class="button button-primary giving-submit" id="givingSubmit">
-              Give Securely
-            </button>
-            <p class="giving-message" id="givingMessage"></p>
-            <p class="giving-secure-note">
-              🔒 256-bit SSL encrypted • Your information is safe and secure
-            </p>
-          </form>
-
-          <!-- Cash App payment -->
-          <div class="giving-form" data-giving-panel="cashapp" hidden>
-            <div class="giving-step">
-              <h3 class="giving-step-title">Give with Cash App</h3>
-
-              <div class="cashapp-box">
-                <span class="cashapp-logo">$</span>
-                <p>
-                  Send your gift directly to us using Cash App. We will receive
-                  your gift instantly and send you a receipt.
-                </p>
-
-                <div class="cashapp-details">
-                  <p>
-                    <strong>Cash App Tag</strong>
-                    <span>$ROOTED317</span>
-                  </p>
-                  <p>
-                    <strong>Name</strong>
-                    <span>ROOTED317 Church</span>
-                  </p>
-                </div>
-
-                <a
-                  href="https://cash.app/$ROOTED317"
-                  target="_blank"
-                  rel="noopener"
-                  class="button button-primary"
-                >
-                  Open Cash App
-                </a>
-
-                <p class="cashapp-note">
-                  After sending, please email us at
-                  <a href="mailto:r317rooted@gmail.com">r317rooted@gmail.com</a>
-                  with the amount and date so we can send your giving receipt.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="events.html" class="button button-primary">See All Events →</a>
         </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section contact-section" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-content reveal-left">
-          <p class="eyebrow">Plan your visit</p>
-          <h2>We would love to meet you</h2>
-
-          <p>
-            Have a question, need prayer, or want more information?
-            Send us a message and a member of our team will contact you.
-          </p>
-
-          <div class="contact-details">
-            <div>
-              <span>📍</span>
-              <p>
-                <strong>Location</strong>
-                373 Main Street, Suwanee, Georgia 30024
-              </p>
-            </div>
-
-            <div>
-              <span>☎</span>
-              <p>
-                <strong>Phone</strong>
-                (678) 555-0123
-              </p>
-            </div>
-
-            <div>
-              <span>✉</span>
-              <p>
-                <strong>Email</strong>
-                <a href="mailto:r317rooted@gmail.com">r317rooted@gmail.com</a>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact-form reveal-right" id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First name</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="lastName">Last name</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="message">How can we help?</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              required
-            ></textarea>
-          </div>
-
-          <button type="submit" class="button button-primary">
-            Send Message
-          </button>
-
-          <p class="form-message" id="formMessage"></p>
-        </form>
       </div>
     </section>
   </main>
@@ -728,35 +280,25 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <a href="#home" class="logo footer-logo">
-        <img src="ROOTED-logo.jpg" alt="ROOTED317 Logo" class="logo-img">
-        </a>
-
-        <p>
-          Loving God, serving people, and building a stronger community.
-        </p>
+        <a href="index.html" class="logo footer-logo"><img src="ROOTED-logo.jpg" alt="ROOTED317 Logo" class="logo-img"></a>
+        <p>Loving God, serving people, and building a stronger community.</p>
       </div>
-
       <div>
         <h3>Explore</h3>
-        <a href="index.html#about" target="_blank" rel="noopener">About Us</a>
-        <a href="meet-the-family.html" target="_blank" rel="noopener">Meet the Family</a>
-        <a href="updates.html" target="_blank" rel="noopener">Updates</a>
-        <a href="index.html#ministries" target="_blank" rel="noopener">Ministries</a>
-        <a href="index.html#sermons" target="_blank" rel="noopener">Sermons</a>
-        <a href="index.html#events" target="_blank" rel="noopener">Events</a>
+        <a href="about.html">About Us</a>
+        <a href="meet-the-family.html">Meet the Family</a>
+        <a href="updates.html">Updates</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="sermons.html">Sermons</a>
+        <a href="events.html">Events</a>
       </div>
-
       <div>
         <h3>Visit</h3>
         <p>Sunday at 9:00 AM</p>
         <p>Sunday at 11:00 AM</p>
         <p>Wednesday at 7:00 PM</p>
-        <p>
-          <a href="mailto:r317rooted@gmail.com">r317rooted@gmail.com</a>
-        </p>
+        <p><a href="mailto:r317rooted@gmail.com">r317rooted@gmail.com</a></p>
       </div>
-
       <div>
         <h3>Connect</h3>
         <div class="social-links">
@@ -766,839 +308,12 @@
         </div>
       </div>
     </div>
-
     <div class="container footer-bottom">
-      <p>
-        © <span id="currentYear"></span> ROOTED317 Church.
-        All rights reserved.
-      </p>
-
-      <div>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-      </div>
+      <p>© <span id="currentYear"></span> ROOTED317 Church. All rights reserved.</p>
+      <div><a href="#">Privacy</a><a href="#">Terms</a></div>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-<section id="purpose" class="purpose-section">
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span class="section-subtitle">
-                ROOTED317
-            </span>
-
-            <h2>
-                Our Purpose
-            </h2>
-
-            <p>
-                Everything we do is centered on Jesus Christ and the mission
-                He has given His Church.
-            </p>
-
-        </div>
-
-        <div class="purpose-grid">
-
-            <!-- Card -->
-
-            <div class="purpose-card reveal">
-
-                <div class="purpose-icon">
-                    ✝
-                </div>
-
-                <h3>
-                    Worship & Glorify God
-                </h3>
-
-                <p>
-
-                    We exist to worship God in Spirit and Truth,
-                    bringing glory to His Name among every nation.
-
-                </p>
-
-                <blockquote>
-
-                    "But the hour is coming, and now is, when the true worshipers
-                    will worship the Father in spirit and truth."
-
-                    <span>
-                        John 4:23
-                    </span>
-
-                </blockquote>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="purpose-card reveal">
-
-                <div class="purpose-icon">
-
-                    🌍
-
-                </div>
-
-                <h3>
-
-                    Preach the Gospel
-
-                </h3>
-
-                <p>
-
-                    We are commissioned to proclaim salvation through
-                    Jesus Christ and make disciples throughout the world.
-
-                </p>
-
-                <blockquote>
-
-                    "Go therefore and make disciples of all nations..."
-
-                    <span>
-
-                        Matthew 28:19-20
-
-                    </span>
-
-                </blockquote>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="purpose-card reveal">
-
-                <div class="purpose-icon">
-
-                    📖
-
-                </div>
-
-                <h3>
-
-                    Equip Believers
-
-                </h3>
-
-                <p>
-
-                    We strengthen believers through biblical teaching,
-                    discipleship, encouragement, and spiritual growth.
-
-                </p>
-
-                <blockquote>
-
-                    "For the equipping of the saints..."
-
-                    <span>
-
-                        Ephesians 4:11-12
-
-                    </span>
-
-                </blockquote>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="purpose-card reveal">
-
-                <div class="purpose-icon">
-
-                    ❤️
-
-                </div>
-
-                <h3>
-
-                    Fellowship & Unity
-
-                </h3>
-
-                <p>
-
-                    We cultivate authentic relationships where believers
-                    encourage one another and grow together.
-
-                </p>
-
-                <blockquote>
-
-                    "They devoted themselves to the apostles'
-                    teaching and fellowship."
-
-                    <span>
-
-                        Acts 2:42
-
-                    </span>
-
-                </blockquote>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="purpose-card reveal">
-
-                <div class="purpose-icon">
-
-                    🤝
-
-                </div>
-
-                <h3>
-
-                    Serve Others
-
-                </h3>
-
-                <p>
-
-                    We demonstrate Christ's love through compassion,
-                    generosity, and practical service.
-
-                </p>
-
-                <blockquote>
-
-                    "By this everyone will know that you are
-                    my disciples..."
-
-                    <span>
-
-                        John 13:35
-
-                    </span>
-
-                </blockquote>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="purpose-card reveal">
-
-                <div class="purpose-icon">
-
-                    💡
-
-                </div>
-
-                <h3>
-
-                    Be the Body of Christ
-
-                </h3>
-
-                <p>
-
-                    We represent Christ to the world by living
-                    as His hands and feet every day.
-
-                </p>
-
-                <blockquote>
-
-                    "You are the light of the world."
-
-                    <span>
-
-                        Matthew 5:14
-
-                    </span>
-
-                </blockquote>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="purpose-card reveal">
-
-                <div class="purpose-icon">
-
-                    👑
-
-                </div>
-
-                <h3>
-
-                    Prepare for Christ's Return
-
-                </h3>
-
-                <p>
-
-                    We live faithfully and with hope,
-                    anticipating the glorious return of Jesus.
-
-                </p>
-
-                <blockquote>
-
-                    "Looking for the blessed hope..."
-
-                    <span>
-
-                        Titus 2:13
-
-                    </span>
-
-                </blockquote>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section> 
-<!-- ============================================
-  ROOTED317 CINEMATIC PURPOSE EXPERIENCE
-============================================= -->
-
-<section
-  class="rooted-purpose"
-  id="purpose"
-  aria-labelledby="rooted-purpose-title"
->
-  <!-- Background video -->
-
-  <video
-    class="rooted-purpose__video"
-    autoplay
-    muted
-    loop
-    playsinline
-    poster="images/rooted-purpose-poster.jpg"
-    aria-hidden="true"
-  >
-    <source src="videos/rooted-background.mp4" type="video/mp4" />
-  </video>
-
-  <!-- Background fallback image -->
-
-  <div class="rooted-purpose__fallback" aria-hidden="true"></div>
-
-  <!-- Dark overlays -->
-
-  <div class="rooted-purpose__overlay" aria-hidden="true"></div>
-  <div class="rooted-purpose__texture" aria-hidden="true"></div>
-
-  <!-- Decorative glowing elements -->
-
-  <div class="rooted-purpose__glow rooted-purpose__glow--one"></div>
-  <div class="rooted-purpose__glow rooted-purpose__glow--two"></div>
-
-  <!-- Section navigation label -->
-
-  <div class="rooted-purpose__topbar">
-    <a class="rooted-purpose__brand" href="#home">
-      <span class="rooted-purpose__brand-cross">✝</span>
-
-      <span>
-        <strong>ROOTED317</strong>
-        <small>Rooted in Christ</small>
-      </span>
-    </a>
-
-    <div class="rooted-purpose__counter" aria-live="polite">
-      <span id="purposeCurrentNumber">01</span>
-      <span class="rooted-purpose__counter-line"></span>
-      <span id="purposeTotalNumber">08</span>
-    </div>
-  </div>
-
-  <!-- Slides -->
-
-  <div class="rooted-purpose__slides">
-    <!-- Introduction -->
-
-    <article
-      class="rooted-purpose__slide is-active"
-      data-purpose-slide
-      data-label="Introduction"
-      aria-hidden="false"
-    >
-      <div class="rooted-purpose__content">
-        <p class="rooted-purpose__eyebrow">ROOTED317</p>
-
-        <h2 id="rooted-purpose-title">
-          Our
-          <span>Purpose</span>
-        </h2>
-
-        <p class="rooted-purpose__intro">
-          Seven expressions of one calling. We exist to worship God,
-          proclaim the Gospel, build disciples, strengthen believers,
-          serve others, and represent Christ in the world.
-        </p>
-
-        <div class="rooted-purpose__opening-line">
-          <span></span>
-
-          <p>
-            Rooted in Christ. Transformed by His presence.
-            Empowered to impact the world.
-          </p>
-        </div>
-
-        <button
-          class="rooted-purpose__start"
-          id="purposeStartButton"
-          type="button"
-        >
-          Explore Our Purpose
-          <span aria-hidden="true">↓</span>
-        </button>
-      </div>
-
-      <div class="rooted-purpose__large-word" aria-hidden="true">
-        ROOTED
-      </div>
-    </article>
-
-    <!-- Purpose 1 -->
-
-    <article
-      class="rooted-purpose__slide"
-      data-purpose-slide
-      data-label="Worship"
-      aria-hidden="true"
-    >
-      <div class="rooted-purpose__content">
-        <p class="rooted-purpose__number">01</p>
-
-        <p class="rooted-purpose__eyebrow">
-          Worship and Glorify God
-        </p>
-
-        <h2>
-          Created to
-          <span>worship.</span>
-        </h2>
-
-        <p class="rooted-purpose__description">
-          We exist to worship God in spirit and truth and to declare
-          His glory among every nation and every generation.
-        </p>
-
-        <blockquote class="rooted-purpose__scripture">
-          <p>
-            “But the hour is coming, and now is, when the true
-            worshipers will worship the Father in spirit and truth.”
-          </p>
-
-          <cite>John 4:23</cite>
-        </blockquote>
-
-        <p class="rooted-purpose__secondary-reference">
-          Declare His glory among the nations.
-          <strong>Psalm 96:3</strong>
-        </p>
-      </div>
-
-      <div class="rooted-purpose__symbol" aria-hidden="true">
-        ✦
-      </div>
-    </article>
-
-    <!-- Purpose 2 -->
-
-    <article
-      class="rooted-purpose__slide"
-      data-purpose-slide
-      data-label="Gospel"
-      aria-hidden="true"
-    >
-      <div class="rooted-purpose__content">
-        <p class="rooted-purpose__number">02</p>
-
-        <p class="rooted-purpose__eyebrow">
-          Preach the Gospel and Make Disciples
-        </p>
-
-        <h2>
-          Sent into
-          <span>all the world.</span>
-        </h2>
-
-        <p class="rooted-purpose__description">
-          Jesus commissioned His Church to proclaim salvation,
-          baptize believers, and develop faithful disciples of
-          every nation.
-        </p>
-
-        <blockquote class="rooted-purpose__scripture">
-          <p>
-            “Go therefore and make disciples of all the nations,
-            baptizing them in the name of the Father and of the Son
-            and of the Holy Spirit.”
-          </p>
-
-          <cite>Matthew 28:19–20</cite>
-        </blockquote>
-
-        <p class="rooted-purpose__secondary-reference">
-          Go into all the world and preach the Gospel.
-          <strong>Mark 16:15</strong>
-        </p>
-      </div>
-
-      <div class="rooted-purpose__symbol" aria-hidden="true">
-        ◉
-      </div>
-    </article>
-
-    <!-- Purpose 3 -->
-
-    <article
-      class="rooted-purpose__slide"
-      data-purpose-slide
-      data-label="Growth"
-      aria-hidden="true"
-    >
-      <div class="rooted-purpose__content">
-        <p class="rooted-purpose__number">03</p>
-
-        <p class="rooted-purpose__eyebrow">
-          Equip and Build Up Believers
-        </p>
-
-        <h2>
-          Growing strong
-          <span>spiritual roots.</span>
-        </h2>
-
-        <p class="rooted-purpose__description">
-          We help believers grow through biblical teaching,
-          discipleship, encouragement, correction, prayer, and
-          meaningful fellowship.
-        </p>
-
-        <blockquote class="rooted-purpose__scripture">
-          <p>
-            “For the equipping of the saints for the work of ministry,
-            for the edifying of the body of Christ.”
-          </p>
-
-          <cite>Ephesians 4:11–12</cite>
-        </blockquote>
-
-        <p class="rooted-purpose__secondary-reference">
-          Stir one another toward love and good works.
-          <strong>Hebrews 10:24–25</strong>
-        </p>
-      </div>
-
-      <div class="rooted-purpose__symbol" aria-hidden="true">
-        ↟
-      </div>
-    </article>
-
-    <!-- Purpose 4 -->
-
-    <article
-      class="rooted-purpose__slide"
-      data-purpose-slide
-      data-label="Unity"
-      aria-hidden="true"
-    >
-      <div class="rooted-purpose__content">
-        <p class="rooted-purpose__number">04</p>
-
-        <p class="rooted-purpose__eyebrow">
-          Fellowship and Unity
-        </p>
-
-        <h2>
-          Many members.
-          <span>One body.</span>
-        </h2>
-
-        <p class="rooted-purpose__description">
-          We cultivate a Christ-centered community where believers
-          pray, learn, worship, serve, and grow together in unity.
-        </p>
-
-        <blockquote class="rooted-purpose__scripture">
-          <p>
-            “They devoted themselves to the apostles’ teaching and
-            fellowship, to the breaking of bread and to prayer.”
-          </p>
-
-          <cite>Acts 2:42</cite>
-        </blockquote>
-
-        <p class="rooted-purpose__secondary-reference">
-          Though many, we are one body in Christ.
-          <strong>Romans 12:5</strong>
-        </p>
-      </div>
-
-      <div class="rooted-purpose__symbol" aria-hidden="true">
-        ∞
-      </div>
-    </article>
-
-    <!-- Purpose 5 -->
-
-    <article
-      class="rooted-purpose__slide"
-      data-purpose-slide
-      data-label="Service"
-      aria-hidden="true"
-    >
-      <div class="rooted-purpose__content">
-        <p class="rooted-purpose__number">05</p>
-
-        <p class="rooted-purpose__eyebrow">
-          Serve and Care for Others
-        </p>
-
-        <h2>
-          Love made
-          <span>visible.</span>
-        </h2>
-
-        <p class="rooted-purpose__description">
-          We demonstrate the love of Jesus through compassion,
-          generosity, practical service, and care for people in need.
-        </p>
-
-        <blockquote class="rooted-purpose__scripture">
-          <p>
-            “By this all people will know that you are My disciples,
-            if you have love for one another.”
-          </p>
-
-          <cite>John 13:35</cite>
-        </blockquote>
-
-        <p class="rooted-purpose__secondary-reference">
-          Care for those experiencing hardship.
-          <strong>James 1:27</strong>
-        </p>
-      </div>
-
-      <div class="rooted-purpose__symbol" aria-hidden="true">
-        ♥
-      </div>
-    </article>
-
-    <!-- Purpose 6 -->
-
-    <article
-      class="rooted-purpose__slide"
-      data-purpose-slide
-      data-label="Identity"
-      aria-hidden="true"
-    >
-      <div class="rooted-purpose__content">
-        <p class="rooted-purpose__number">06</p>
-
-        <p class="rooted-purpose__eyebrow">
-          Be the Body of Christ on Earth
-        </p>
-
-        <h2>
-          His hands.
-          <span>His feet. His light.</span>
-        </h2>
-
-        <p class="rooted-purpose__description">
-          We represent Jesus by reflecting His truth, grace, mercy,
-          holiness, and love throughout our communities.
-        </p>
-
-        <blockquote class="rooted-purpose__scripture">
-          <p>
-            “Now you are the body of Christ, and each one of you
-            is a part of it.”
-          </p>
-
-          <cite>1 Corinthians 12:27</cite>
-        </blockquote>
-
-        <p class="rooted-purpose__secondary-reference">
-          You are the light of the world.
-          <strong>Matthew 5:14</strong>
-        </p>
-      </div>
-
-      <div class="rooted-purpose__symbol" aria-hidden="true">
-        ✝
-      </div>
-    </article>
-
-    <!-- Purpose 7 -->
-
-    <article
-      class="rooted-purpose__slide"
-      data-purpose-slide
-      data-label="Hope"
-      aria-hidden="true"
-    >
-      <div class="rooted-purpose__content">
-        <p class="rooted-purpose__number">07</p>
-
-        <p class="rooted-purpose__eyebrow">
-          Prepare for Christ’s Return
-        </p>
-
-        <h2>
-          Living with
-          <span>eternal hope.</span>
-        </h2>
-
-        <p class="rooted-purpose__description">
-          We live faithfully, prayerfully, and expectantly as we
-          prepare for the glorious return of Jesus Christ.
-        </p>
-
-        <blockquote class="rooted-purpose__scripture">
-          <p>
-            “Looking for the blessed hope and glorious appearing
-            of our great God and Savior Jesus Christ.”
-          </p>
-
-          <cite>Titus 2:13</cite>
-        </blockquote>
-      </div>
-
-      <div class="rooted-purpose__symbol" aria-hidden="true">
-        ✧
-      </div>
-    </article>
-
-    <!-- Vision -->
-
-    <article
-      class="rooted-purpose__slide rooted-purpose__slide--vision"
-      data-purpose-slide
-      data-label="Vision"
-      aria-hidden="true"
-    >
-      <div class="rooted-purpose__content rooted-purpose__content--center">
-        <p class="rooted-purpose__eyebrow">
-          The Vision of ROOTED317
-        </p>
-
-        <h2>
-          Deeply rooted.
-          <span>Spiritually transformed.</span>
-        </h2>
-
-        <p class="rooted-purpose__vision-text">
-          To see people deeply rooted in Christ, transformed by His
-          presence, and empowered to impact their communities with
-          the Gospel.
-        </p>
-
-        <p class="rooted-purpose__vision-text">
-          To see a vibrant generation of young adults who are
-          spiritually transformed, passionately serving Christ,
-          and impacting their communities with the love of God.
-        </p>
-
-        <blockquote class="rooted-purpose__scripture rooted-purpose__scripture--center">
-          <p>
-            “That Christ may dwell in your hearts through faith;
-            that you, being rooted and grounded in love...”
-          </p>
-
-          <cite>Ephesians 3:17</cite>
-        </blockquote>
-
-        <a class="rooted-purpose__cta" href="#contact">
-          Connect With ROOTED317
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-
-      <div class="rooted-purpose__large-word" aria-hidden="true">
-        3:17
-      </div>
-    </article>
-  </div>
-
-  <!-- Side progress navigation -->
-
-  <nav
-    class="rooted-purpose__progress"
-    id="purposeProgress"
-    aria-label="Our Purpose sections"
-  ></nav>
-
-  <!-- Bottom controls -->
-
-  <div class="rooted-purpose__controls">
-    <button
-      class="rooted-purpose__control"
-      id="purposePrevious"
-      type="button"
-      aria-label="View previous purpose"
-    >
-      <span aria-hidden="true">←</span>
-      Previous
-    </button>
-
-    <div class="rooted-purpose__instruction">
-      <span class="rooted-purpose__mouse" aria-hidden="true">
-        <span></span>
-      </span>
-
-      <p>Scroll or use the arrows</p>
-    </div>
-
-    <button
-      class="rooted-purpose__control"
-      id="purposeNext"
-      type="button"
-      aria-label="View next purpose"
-    >
-      Next
-      <span aria-hidden="true">→</span>
-    </button>
-  </div>
-
-  <!-- Mobile swipe hint -->
-
-  <p class="rooted-purpose__mobile-hint">
-    Swipe to explore
-  </p>
-</section> 
-<a href="#purpose">Our Purpose</a> 
-<div class="nav-menu" id="navMenu">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#purpose">Our Purpose</a>
-  <a href="#services">Services</a>
-  <a href="#ministries">Ministries</a>
-  <a href="#sermons">Sermons</a>
-  <a href="#events">Events</a>
-  <a href="#contact">Contact</a>
-</div> 
-<a href="#sunday-program">Sunday Program</a>
-<a href="#giving">Give</a> 
-<!-- ============================================
-  ROOTED317 SUNDAY PROGRAM
-============================================= -->
-
-<section class="sunday-program-section" id="sunday-program">
- 

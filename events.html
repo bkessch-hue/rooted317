@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Upcoming events at ROOTED317 Church. Join us for community gatherings, worship nights, and more."
+  />
+
+  <title>Events — ROOTED317 Church</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">
+        <img src="ROOTED-logo.jpg" alt="ROOTED317 Logo" class="logo-img">
+      </a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="meet-the-family.html">Meet the Family</a>
+        <a href="updates.html">Updates</a>
+        <a href="services.html">Services</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="sermons.html">Sermons</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="contact.html">Contact</a>
+        <a href="give.html" class="nav-button">Give Online</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-shape hero-shape-one"></div>
+      <div class="hero-shape hero-shape-two"></div>
+
+      <div class="container hero-content">
+        <p class="eyebrow hero-animation">
+          Get connected
+        </p>
+
+        <h1 class="hero-animation">
+          Upcoming
+          <span>Events</span>
+        </h1>
+
+        <p class="hero-description hero-animation">
+          Stay connected with the ROOTED317 family. Join us for worship,
+          fellowship, and community outreach.
+        </p>
+      </div>
+
+      <a href="#events" class="scroll-indicator" aria-label="Scroll down">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- Events -->
+    <section class="section events-section" id="events">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Get connected</p>
+          <h2>Upcoming Events</h2>
+        </div>
+
+        <div class="event-list">
+          <article class="event-item reveal">
+            <div class="event-date">
+              <span>JUL</span>
+              <strong>26</strong>
+            </div>
+
+            <div class="event-information">
+              <p>Saturday • 10:00 AM</p>
+              <h3>Community Food Distribution</h3>
+              <span>ROOTED317 Church Parking Lot</span>
+            </div>
+
+            <a href="contact.html">Details →</a>
+          </article>
+
+          <article class="event-item reveal">
+            <div class="event-date">
+              <span>AUG</span>
+              <strong>02</strong>
+            </div>
+
+            <div class="event-information">
+              <p>Sunday • 1:00 PM</p>
+              <h3>Welcome Lunch for New Families</h3>
+              <span>Fellowship Hall</span>
+            </div>
+
+            <a href="contact.html">Register →</a>
+          </article>
+
+          <article class="event-item reveal">
+            <div class="event-date">
+              <span>AUG</span>
+              <strong>14</strong>
+            </div>
+
+            <div class="event-information">
+              <p>Friday • 6:30 PM</p>
+              <h3>Youth Worship Night</h3>
+              <span>Main Sanctuary</span>
+            </div>
+
+            <a href="contact.html">Details →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <img src="ROOTED-logo.jpg" alt="ROOTED317 Logo" class="logo-img">
+        </a>
+
+        <p>
+          Loving God, serving people, and building a stronger community.
+        </p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <a href="about.html">About Us</a>
+        <a href="meet-the-family.html">Meet the Family</a>
+        <a href="updates.html">Updates</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="sermons.html">Sermons</a>
+        <a href="events.html">Events</a>
+      </div>
+
+      <div>
+        <h3>Visit</h3>
+        <p>Sunday at 9:00 AM</p>
+        <p>Sunday at 11:00 AM</p>
+        <p>Wednesday at 7:00 PM</p>
+        <p>
+          <a href="mailto:r317rooted@gmail.com">r317rooted@gmail.com</a>
+        </p>
+      </div>
+
+      <div>
+        <h3>Connect</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="https://www.youtube.com/live/7pUGcycP3KI" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>
+        © <span id="currentYear"></span> ROOTED317 Church.
+        All rights reserved.
+      </p>
+
+      <div>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

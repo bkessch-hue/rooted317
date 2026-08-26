@@ -1911,6 +1911,8 @@ h3 {
 
 /* Responsive design */
 
+/* ─── Responsive Design ──────────────────────────────── */
+
 @media (max-width: 960px) {
   .menu-button {
     display: block;
@@ -1928,12 +1930,11 @@ h3 {
     pointer-events: none;
     position: fixed;
     transform: translateY(-20px);
-    transition:
-      opacity var(--transition),
-      transform var(--transition);
+    transition: opacity var(--transition), transform var(--transition);
   }
 
-  .nav-menu.active {
+  .nav-menu.active,
+  .nav-menu.is-open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
@@ -1955,7 +1956,9 @@ h3 {
   }
 
   .menu-button.active span,
-  .header.scrolled .menu-button.active span {
+  .header.scrolled .menu-button.active span,
+  .menu-button.is-open span,
+  .header.scrolled .menu-button.is-open span {
     background: var(--white);
   }
 
@@ -1984,17 +1987,232 @@ h3 {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
+  /* Container */
+  .container {
+    width: calc(100% - 36px);
+    max-width: 480px;
+  }
+
+  /* Section spacing */
   .section {
+    padding: 45px 0;
+  }
+
+  /* Typography */
+  h1 {
+    font-size: clamp(2.4rem, 10vw, 5.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.9rem, 8vw, 3rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 5vw, 1.7rem);
+  }
+
+  p {
+    font-size: clamp(0.95rem, 4vw, 1.05rem);
+  }
+
+  /* Header */
+  header,
+  .navbar {
+    min-height: 70px;
+  }
+
+  .logo-img {
+    max-height: 44px;
+    width: auto;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 620px;
+    height: auto;
+    padding: 110px 20px 45px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 11vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-shape-one {
+    height: 250px;
+    right: -100px;
+    top: 100px;
+    width: 250px;
+  }
+
+  .hero-shape-two {
+    height: 200px;
+    width: 200px;
+  }
+
+  /* Service banner */
+  .service-banner,
+  .hero-service-card {
+    width: 100%;
+    padding: 16px;
+    min-height: 0;
+    height: auto;
+  }
+
+  .service-banner h3,
+  .hero-service-card h3 {
+    font-size: 1.35rem;
+  }
+
+  .service-banner a {
+    margin-left: 0;
+  }
+
+  /* Images - regular content */
+  .section-image,
+  .welcome-image,
+  .ministry-image,
+  .sermon-image,
+  .image-composition,
+  .main-image {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Family photos - keep visible, no crop */
+  .family-photo img,
+  .family-card img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  /* Updates section */
+  .updates-section {
+    padding: 45px 20px;
+  }
+
+  .updates-section h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    line-height: 1.05;
+  }
+
+  .updates-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 34rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Video */
+  .video-wrapper,
+  .video-container,
+  .updates-video-frame {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .video-wrapper video,
+  .video-wrapper iframe,
+  .video-container video,
+  .video-container iframe,
+  .updates-video-frame video {
+    width: 100%;
+    height: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Grids - single column */
+  .service-grid,
+  .ministry-grid,
+  .sermon-grid,
+  .event-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* Cards */
+  .service-card,
+  .ministry-card,
+  .sermon-card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  /* Ministry images */
+  .ministry-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .ministry-gallery img {
+    height: 140px;
+  }
+
+  .ministry-gallery img:first-child {
+    height: 160px;
+  }
+
+  /* Sermon thumbnails */
+  .sermon-card .sermon-image,
+  .sermon-image {
+    height: 190px;
+  }
+
+  .sermon-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+  }
+
+  /* Events */
+  .event-item {
+    align-items: start;
+    grid-template-columns: 65px 1fr;
+    padding: 22px 18px;
+  }
+
+  .event-item > a {
+    grid-column: 2;
+  }
+
+  /* Giving */
+  .give-section {
+    min-height: auto;
+  }
+
+  .give-content {
     padding-block: 60px;
+  }
+
+  .giving-widget {
+    max-width: 100%;
   }
 
   .giving-quick-row {
     grid-template-columns: 1fr;
-  }
-
-  .giving-form {
-    padding: 20px;
   }
 
   .giving-amounts {
@@ -2005,74 +2223,27 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    min-height: 700px;
+  .giving-form {
+    padding: 20px;
   }
 
-  .hero-overlay {
-    background: rgba(9, 31, 38, 0.88);
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 10vw, 3.5rem);
-  }
-
-  .service-banner {
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .service-banner a {
-    margin-left: 62px;
-  }
-
-  .image-composition {
-    min-height: 470px;
-  }
-
-  .main-image {
-    height: 430px;
-    width: 94%;
-  }
-
-  .experience-card {
-    bottom: -15px;
-  }
-
-  .service-grid,
-  .ministry-grid,
-  .sermon-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .heading-row {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .event-item {
-    align-items: start;
-    grid-template-columns: 65px 1fr;
-    padding: 22px 18px;
-  }
-
-  .event-item:hover {
-    padding-left: 22px;
-  }
-
-  .event-item > a {
-    grid-column: 2;
+  /* Contact */
+  .contact-form {
+    padding: 28px 20px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
   }
 
-  .contact-form {
-    padding: 28px 20px;
+  /* Heading row */
+  .heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
   }
 
+  /* Footer */
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -2081,6 +2252,68 @@ h3 {
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
+  }
+
+  /* Image composition */
+  .image-composition {
+    min-height: auto;
+  }
+
+  .main-image {
+    height: auto;
+    max-height: 280px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 38px 0;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero {
+    min-height: 560px;
+    padding: 90px 16px 36px;
+  }
+
+  .video-wrapper,
+  .video-container,
+  .updates-video-frame {
+    max-width: 100%;
+  }
+
+  .video-wrapper video,
+  .video-wrapper iframe,
+  .video-container video,
+  .video-container iframe,
+  .updates-video-frame video {
+    max-height: 210px;
+  }
+
+  .service-card,
+  .ministry-card,
+  .sermon-card {
+    max-width: 100%;
+  }
+
+  .give-content {
+    padding-block: 45px;
+  }
+
+  .giving-form {
+    padding: 16px;
+  }
+
+  .contact-form {
+    padding: 20px 16px;
+  }
+
+  .event-item {
+    padding: 18px 14px;
   }
 }
 
@@ -3086,41 +3319,23 @@ h3 {
 
 @media (max-width: 390px) {
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   .hero {
-    min-height: 600px;
-    padding-block: 100px 60px;
-  }
-
-  .hero-description {
-    font-size: 0.95rem;
-  }
-
-  .service-banner {
-    padding: 14px 16px;
+    min-height: 520px;
   }
 
   .section {
-    padding-block: 50px;
-  }
-
-  .section-heading h2,
-  .heading-row h2 {
-    font-size: 1.6rem;
-  }
-
-  .eyebrow {
-    font-size: 0.7rem;
+    padding: 32px 0;
   }
 
   .rooted-purpose__slide h2 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 
   .rooted-purpose__scripture {
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   .rooted-purpose__secondary-reference {

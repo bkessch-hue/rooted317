@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Give online to ROOTED317 Church. Your generosity helps us serve families, support missions, and share hope throughout our community."
+  />
+
+  <title>Give — ROOTED317 Church</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .give-hero {
+      align-items: center;
+      background:
+        url("https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1800&q=80")
+        center / cover no-repeat;
+      color: var(--white);
+      display: flex;
+      min-height: 55vh;
+      overflow: hidden;
+      padding-block: 160px 90px;
+      position: relative;
+    }
+
+    .give-hero-overlay {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(9, 31, 38, 0.96) 0%,
+          rgba(9, 31, 38, 0.82) 45%,
+          rgba(9, 31, 38, 0.35) 100%
+        );
+      inset: 0;
+      position: absolute;
+    }
+
+    .give-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .give-hero h1 {
+      color: var(--white);
+      font-size: clamp(2.2rem, 7vw, 5.8rem);
+      letter-spacing: -0.045em;
+      max-width: 760px;
+    }
+
+    .give-hero h1 span {
+      color: var(--primary);
+      display: block;
+      font-style: italic;
+    }
+
+    .give-hero-description {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      margin: 28px 0 0;
+      max-width: 570px;
+    }
+
+    .give-page-section {
+      background: var(--bg-light);
+      padding-block: 80px;
+    }
+
+    .give-page-section .giving-widget {
+      margin: 40px auto 0;
+      max-width: 560px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">
+        <img src="ROOTED-logo.jpg" alt="ROOTED317 Logo" class="logo-img">
+      </a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="meet-the-family.html">Meet the Family</a>
+        <a href="updates.html">Updates</a>
+        <a href="services.html">Services</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="sermons.html">Sermons</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+
+        <a href="give.html" class="nav-button">
+          Give Online
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="give-hero">
+      <div class="give-hero-overlay"></div>
+
+      <div class="container give-hero-content">
+        <p class="eyebrow hero-animation">
+          Make a difference
+        </p>
+
+        <h1 class="hero-animation">
+          Your generosity
+          <span>changes lives</span>
+        </h1>
+
+        <p class="give-hero-description hero-animation">
+          Every gift helps us serve families, support missions, and share
+          hope throughout our community.
+        </p>
+      </div>
+    </section>
+
+    <!-- Giving Widget Section -->
+    <section class="section give-page-section">
+      <div class="container">
+        <div class="give-content reveal" style="max-width:700px;margin:0 auto;text-align:center;">
+          <p class="eyebrow">Make a difference</p>
+
+          <h2>Your generosity changes lives</h2>
+
+          <p>
+            Every gift helps us serve families, support missions, and share
+            hope throughout our community.
+          </p>
+
+          <div class="giving-widget">
+            <div class="giving-payment-methods">
+              <button class="giving-method is-active" data-giving-method="card" type="button">
+                <span class="giving-method-icon">💳</span>
+                Card
+              </button>
+              <button class="giving-method" data-giving-method="cashapp" type="button">
+                <span class="giving-method-icon">$</span>
+                Cash App
+              </button>
+            </div>
+
+            <!-- Card payment -->
+            <form class="giving-form" id="givingCardForm" data-giving-panel="card">
+              <div class="giving-quick-row">
+                <div class="giving-step">
+                  <h3 class="giving-step-title">Amount</h3>
+
+                  <div class="giving-amounts">
+                    <button class="giving-amount is-active" type="button" data-amount="25">$25</button>
+                    <button class="giving-amount" type="button" data-amount="50">$50</button>
+                    <button class="giving-amount" type="button" data-amount="100">$100</button>
+                    <button class="giving-amount" type="button" data-amount="250">$250</button>
+                    <button class="giving-amount is-custom" type="button" data-custom>Custom</button>
+                  </div>
+
+                  <div class="giving-custom hidden" id="givingCustom">
+                    <label for="givingCustomAmount">Custom amount ($)</label>
+                    <input type="number" id="givingCustomAmount" min="1" placeholder="Enter amount" />
+                  </div>
+                </div>
+
+                <div class="giving-step">
+                  <h3 class="giving-step-title">Frequency</h3>
+
+                  <div class="giving-frequency">
+                    <button class="giving-frequency-option is-active" type="button" data-frequency="once">
+                      One Time
+                    </button>
+                    <button class="giving-frequency-option" type="button" data-frequency="monthly">
+                      Monthly
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="giving-form-group">
+                <label for="givingName">Name</label>
+                <input type="text" id="givingName" placeholder="Full name" />
+              </div>
+
+              <div class="giving-form-group">
+                <label for="givingCardNumber">Card number</label>
+                <input type="text" id="givingCardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" />
+                <div class="giving-card-badges">
+                  <span class="giving-card-badge">VISA</span>
+                  <span class="giving-card-badge">Mastercard</span>
+                  <span class="giving-card-badge">AMEX</span>
+                  <span class="giving-card-badge">Discover</span>
+                </div>
+              </div>
+
+              <div class="giving-form-row">
+                <div class="giving-form-group">
+                  <label for="givingExpiry">Expiry</label>
+                  <input type="text" id="givingExpiry" placeholder="MM/YY" />
+                </div>
+
+                <div class="giving-form-group">
+                  <label for="givingCvc">CVC</label>
+                  <input type="text" id="givingCvc" placeholder="123" />
+                </div>
+              </div>
+
+              <div class="giving-form-group">
+                <label for="givingEmail">Email</label>
+                <input type="email" id="givingEmail" placeholder="you@example.com" />
+              </div>
+
+              <button type="submit" class="button button-primary giving-submit" id="givingSubmit">
+                Give Securely
+              </button>
+              <p class="giving-message" id="givingMessage"></p>
+              <p class="giving-secure-note">
+                🔒 256-bit SSL encrypted • Your information is safe and secure
+              </p>
+            </form>
+
+            <!-- Cash App payment -->
+            <div class="giving-form" data-giving-panel="cashapp" hidden>
+              <div class="giving-step">
+                <h3 class="giving-step-title">Give with Cash App</h3>
+
+                <div class="cashapp-box">
+                  <span class="cashapp-logo">$</span>
+                  <p>
+                    Send your gift directly to us using Cash App. We will receive
+                    your gift instantly and send you a receipt.
+                  </p>
+
+                  <div class="cashapp-details">
+                    <p>
+                      <strong>Cash App Tag</strong>
+                      <span>$ROOTED317</span>
+                    </p>
+                    <p>
+                      <strong>Name</strong>
+                      <span>ROOTED317 Church</span>
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://cash.app/$ROOTED317"
+                    target="_blank"
+                    rel="noopener"
+                    class="button button-primary"
+                  >
+                    Open Cash App
+                  </a>
+
+                  <p class="cashapp-note">
+                    After sending, please email us at
+                    <a href="mailto:r317rooted@gmail.com">r317rooted@gmail.com</a>
+                    with the amount and date so we can send your giving receipt.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+        <img src="ROOTED-logo.jpg" alt="ROOTED317 Logo" class="logo-img">
+        </a>
+
+        <p>
+          Loving God, serving people, and building a stronger community.
+        </p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <a href="about.html">About Us</a>
+        <a href="meet-the-family.html">Meet the Family</a>
+        <a href="updates.html">Updates</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="sermons.html">Sermons</a>
+        <a href="events.html">Events</a>
+      </div>
+
+      <div>
+        <h3>Visit</h3>
+        <p>Sunday at 9:00 AM</p>
+        <p>Sunday at 11:00 AM</p>
+        <p>Wednesday at 7:00 PM</p>
+        <p>
+          <a href="mailto:r317rooted@gmail.com">r317rooted@gmail.com</a>
+        </p>
+      </div>
+
+      <div>
+        <h3>Connect</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="https://www.youtube.com/live/7pUGcycP3KI" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>
+        © <span id="currentYear"></span> ROOTED317 Church.
+        All rights reserved.
+      </p>
+
+      <div>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Giving Widget + Hamburger Menu -->
+  <script>
+    (function () {
+      // Hamburger menu toggle
+      var header = document.getElementById('header');
+      var menuButton = document.getElementById('menuButton');
+      var navMenu = document.getElementById('navMenu');
+
+      menuButton.addEventListener('click', function () {
+        var isOpen = navMenu.classList.toggle('active');
+        menuButton.classList.toggle('active');
+        menuButton.setAttribute('aria-expanded', isOpen);
+        document.body.classList.toggle('menu-open');
+      });
+
+      navMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navMenu.classList.remove('active');
+          menuButton.classList.remove('active');
+          menuButton.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      }
+
+      // Giving widget functionality
+      var givingMethods = document.querySelectorAll("[data-giving-method]");
+      var givingPanels = document.querySelectorAll("[data-giving-panel]");
+      var givingAmounts = document.querySelectorAll(".giving-amount");
+      var givingCustom = document.getElementById("givingCustom");
+      var givingCustomAmount = document.getElementById("givingCustomAmount");
+      var givingFrequencies = document.querySelectorAll(".giving-frequency-option");
+      var givingCardForm = document.getElementById("givingCardForm");
+      var givingMessage = document.getElementById("givingMessage");
+
+      var selectedAmount = 25;
+
+      // Switch between payment methods
+      givingMethods.forEach(function (method) {
+        method.addEventListener("click", function () {
+          givingMethods.forEach(function (m) { m.classList.remove("is-active"); });
+          method.classList.add("is-active");
+
+          var target = method.dataset.givingMethod;
+
+          givingPanels.forEach(function (panel) {
+            panel.hidden = panel.dataset.givingPanel !== target;
+          });
+        });
+      });
+
+      // Select quick amount
+      givingAmounts.forEach(function (amount) {
+        amount.addEventListener("click", function () {
+          givingAmounts.forEach(function (a) { a.classList.remove("is-active"); });
+          amount.classList.add("is-active");
+
+          if (amount.dataset.custom !== undefined) {
+            if (givingCustom) givingCustom.classList.remove("hidden");
+            if (givingCustomAmount) givingCustomAmount.focus();
+            return;
+          }
+
+          if (givingCustom) givingCustom.classList.add("hidden");
+          selectedAmount = Number(amount.dataset.amount);
+        });
+      });
+
+      // Handle custom amount input
+      if (givingCustomAmount) {
+        givingCustomAmount.addEventListener("input", function () {
+          selectedAmount = Number(givingCustomAmount.value) || 0;
+        });
+      }
+
+      // Gift frequency selection
+      givingFrequencies.forEach(function (option) {
+        option.addEventListener("click", function () {
+          givingFrequencies.forEach(function (o) { o.classList.remove("is-active"); });
+          option.classList.add("is-active");
+        });
+      });
+
+      // Format card number input
+      var cardNumber = document.getElementById("givingCardNumber");
+      if (cardNumber) {
+        cardNumber.addEventListener("input", function () {
+          var value = cardNumber.value.replace(/\D/g, "").slice(0, 16);
+          cardNumber.value = value.replace(/(\d{4})(?=\d)/g, "$1 ");
+        });
+      }
+
+      // Format expiry input
+      var expiry = document.getElementById("givingExpiry");
+      if (expiry) {
+        expiry.addEventListener("input", function () {
+          var value = expiry.value.replace(/\D/g, "").slice(0, 4);
+          if (value.length > 2) {
+            value = value.slice(0, 2) + "/" + value.slice(2);
+          }
+          expiry.value = value;
+        });
+      }
+
+      // Limit CVC to 4 digits
+      var cvc = document.getElementById("givingCvc");
+      if (cvc) {
+        cvc.addEventListener("input", function () {
+          cvc.value = cvc.value.replace(/\D/g, "").slice(0, 4);
+        });
+      }
+
+      // Handle card form submission
+      if (givingCardForm) {
+        givingCardForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var email = document.getElementById("givingEmail");
+          var name = document.getElementById("givingName");
+
+          if (
+            selectedAmount <= 0 ||
+            !name.value.trim() ||
+            !cardNumber.value.trim() ||
+            !expiry.value.trim() ||
+            !cvc.value.trim() ||
+            !email.value.trim()
+          ) {
+            if (givingMessage) {
+              givingMessage.textContent = "Please complete all required fields.";
+              givingMessage.style.color = "#c0392b";
+            }
+            return;
+          }
+
+          var frequency = document.querySelector(".giving-frequency-option.is-active");
+          var freqValue = frequency ? frequency.dataset.frequency : "once";
+
+          if (givingMessage) {
+            var person = name.value.trim();
+            givingMessage.textContent = "Thank you, " + person + "! Your $" + selectedAmount + (freqValue === "monthly" ? " monthly " : " ") + "gift has been received. A receipt will be emailed to you.";
+            givingMessage.style.color = "#38745b";
+          }
+
+          givingCardForm.reset();
+          givingAmounts.forEach(function (a) { a.classList.remove("is-active"); });
+          givingAmounts[0].classList.add("is-active");
+          givingFrequencies.forEach(function (o) { o.classList.remove("is-active"); });
+          givingFrequencies[0].classList.add("is-active");
+          if (givingCustom) givingCustom.classList.add("hidden");
+          selectedAmount = 25;
+        });
+      }
+
+      // Set current year
+      var currentYear = document.getElementById("currentYear");
+      if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+</body>
+</html>
