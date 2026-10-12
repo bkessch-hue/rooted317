@@ -1944,6 +1944,12 @@ h3 {
     transform: translateY(0);
   }
 
+  /* Horizontal reveal offsets cause sideways scroll on phones — make them vertical */
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(35px);
+  }
+
   .nav-menu > a,
   .header.scrolled .nav-menu > a {
     color: var(--white);
