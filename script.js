@@ -1,3 +1,6 @@
+(function () {
+"use strict";
+
 const header = document.getElementById("header");
 const menuButton = document.getElementById("menuButton");
 const navMenu = document.getElementById("navMenu");
@@ -65,6 +68,7 @@ function handleParallax() {
 
 // Change the navigation appearance after scrolling.
 function updateHeader() {
+  if (!header) return;
   if (window.scrollY > 40) {
     header.classList.add("scrolled");
   } else {
@@ -235,23 +239,27 @@ document.querySelectorAll('.service-card, .ministry-card, .sermon-card, .event-i
 });
 
 // Form submission
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  
-  const firstName = document.getElementById("firstName").value.trim();
-  
-  // Add success animation
-  contactForm.style.animation = 'shake 0.5s ease';
-  setTimeout(() => contactForm.style.animation = '', 500);
-  
-  formMessage.textContent =
-    `Thank you${firstName ? `, ${firstName}` : ""}. ` +
-    "Your message has been received.";
-  
-  formMessage.style.color = "#38745b";
-  
-  contactForm.reset();
-});
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const firstName = document.getElementById("firstName");
+    const firstNameValue = firstName ? firstName.value.trim() : "";
+
+    // Add success animation
+    contactForm.style.animation = 'shake 0.5s ease';
+    setTimeout(() => contactForm.style.animation = '', 500);
+
+    if (formMessage) {
+      formMessage.textContent =
+        `Thank you${firstNameValue ? `, ${firstNameValue}` : ""}. ` +
+        "Your message has been received.";
+      formMessage.style.color = "#38745b";
+    }
+
+    contactForm.reset();
+  });
+}
 
 // Add shake animation for form
 const shakeStyle = document.createElement('style');
@@ -292,20 +300,25 @@ function toggleMenu() {
   }
 }
 
-menuButton.addEventListener("click", toggleMenu);
+if (menuButton && navMenu) {
+  menuButton.addEventListener("click", toggleMenu);
 
-// Close the mobile menu after selecting a link.
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-    menuButton.classList.remove("active");
-    document.body.classList.remove("menu-open");
-    menuButton.setAttribute("aria-expanded", "false");
+  // Close the mobile menu after selecting a link.
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      menuButton.classList.remove("active");
+      document.body.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    });
   });
-});
+}
 
-// Custom cursor effect
+// Custom cursor effect (pointer devices only — pointless and wasteful on touch)
 function addCustomCursor() {
+  if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    return;
+  }
   const cursor = document.createElement('div');
   cursor.style.cssText = `
     position: fixed;
@@ -929,3 +942,5 @@ function initializePurposeExperience() {
 }
 
 initializePurposeExperience();
+
+})();

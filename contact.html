@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="theme-color" content="#10252c" />
   <meta
     name="description"
     content="Contact ROOTED317 Church — get in touch, ask questions, request prayer, or plan your visit. We would love to hear from you."
@@ -230,38 +234,5 @@
   <script src="language-selector.js"></script>
   <script src="script.js"></script>
 
-  <script>
-    // Contact form submission
-    const contactForm = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
-
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const firstName = document.getElementById("firstName").value.trim();
-
-      contactForm.style.animation = 'shake 0.5s ease';
-      setTimeout(() => contactForm.style.animation = '', 500);
-
-      formMessage.textContent =
-        `Thank you${firstName ? `, ${firstName}` : ""}. ` +
-        "Your message has been received.";
-
-      formMessage.style.color = "#38745b";
-
-      contactForm.reset();
-    });
-
-    // Shake animation
-    const shakeStyle = document.createElement('style');
-    shakeStyle.textContent = `
-      @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-        20%, 40%, 60%, 80% { transform: translateX(5px); }
-      }
-    `;
-    document.head.appendChild(shakeStyle);
-  </script>
 </body>
 </html>

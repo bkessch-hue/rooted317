@@ -4,6 +4,66 @@
 
 /* ---------- Trigger Button ---------- */
 
+.lang-trigger-btn {
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 600;
+  padding: 8px 0;
+  position: relative;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.lang-trigger-btn-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.header.scrolled .lang-trigger-btn {
+  color: var(--navy);
+}
+
+.lang-trigger-btn:hover {
+  color: var(--primary);
+}
+
+/* Trigger inside the bespoke .page-nav used on Updates / Meet the Family */
+.page-nav .lang-trigger-btn {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.page-nav .lang-trigger-btn:hover {
+  color: #c99a52;
+}
+
+/* Match the full-screen mobile navigation styling */
+@media (max-width: 960px) {
+  .nav-menu .lang-trigger-btn,
+  .header.scrolled .nav-menu .lang-trigger-btn {
+    color: var(--white);
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    padding: 8px 0;
+  }
+
+  .nav-menu .lang-trigger-btn-icon {
+    font-size: 1.3rem;
+  }
+}
+
+/* ---------- Legacy single-class trigger (kept for safety) ---------- */
+
 .lang-trigger {
   background: transparent;
   border: none;
@@ -250,6 +310,15 @@
   color: var(--muted);
   display: block;
   line-height: 1.3;
+}
+
+.lang-no-results {
+  grid-column: 1 / -1;
+  padding: 40px 12px;
+  text-align: center;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
 }
 
 /* ---------- Panel Footer ---------- */

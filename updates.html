@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="theme-color" content="#10252c" />
   <meta
     name="description"
     content="ROOTED317 Updates - Watch our latest church updates and video messages. ROOTED317 Church, coming soon."
@@ -100,6 +104,19 @@
     .page-nav a:hover,
     .page-nav a.is-active {
       color: var(--gold);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      display: block;
+      height: 44px;
+      width: auto;
+      max-width: 60vw;
+      object-fit: contain;
     }
 
     .brand {
@@ -368,6 +385,25 @@
     @media (max-width: 600px) {
       .header {
         padding-block: 20px;
+      }
+
+      .page-nav {
+        gap: 16px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        width: 100%;
+        padding-bottom: 6px;
+      }
+
+      .page-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .page-nav a {
+        font-size: 0.78rem;
+        white-space: nowrap;
       }
 
       .back-link {

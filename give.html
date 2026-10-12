@@ -5,8 +5,12 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="theme-color" content="#10252c" />
 
   <meta
     name="description"
@@ -354,173 +358,5 @@
   <script src="language-selector.js"></script>
   <script src="script.js"></script>
 
-  <!-- Giving Widget + Hamburger Menu -->
-  <script>
-    (function () {
-      // Hamburger menu toggle
-      var header = document.getElementById('header');
-      var menuButton = document.getElementById('menuButton');
-      var navMenu = document.getElementById('navMenu');
-
-      menuButton.addEventListener('click', function () {
-        var isOpen = navMenu.classList.toggle('active');
-        menuButton.classList.toggle('active');
-        menuButton.setAttribute('aria-expanded', isOpen);
-        document.body.classList.toggle('menu-open');
-      });
-
-      navMenu.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          navMenu.classList.remove('active');
-          menuButton.classList.remove('active');
-          menuButton.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('menu-open');
-        });
-      });
-
-      window.addEventListener('scroll', function () {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-      });
-
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      }
-
-      // Giving widget functionality
-      var givingMethods = document.querySelectorAll("[data-giving-method]");
-      var givingPanels = document.querySelectorAll("[data-giving-panel]");
-      var givingAmounts = document.querySelectorAll(".giving-amount");
-      var givingCustom = document.getElementById("givingCustom");
-      var givingCustomAmount = document.getElementById("givingCustomAmount");
-      var givingFrequencies = document.querySelectorAll(".giving-frequency-option");
-      var givingCardForm = document.getElementById("givingCardForm");
-      var givingMessage = document.getElementById("givingMessage");
-
-      var selectedAmount = 25;
-
-      // Switch between payment methods
-      givingMethods.forEach(function (method) {
-        method.addEventListener("click", function () {
-          givingMethods.forEach(function (m) { m.classList.remove("is-active"); });
-          method.classList.add("is-active");
-
-          var target = method.dataset.givingMethod;
-
-          givingPanels.forEach(function (panel) {
-            panel.hidden = panel.dataset.givingPanel !== target;
-          });
-        });
-      });
-
-      // Select quick amount
-      givingAmounts.forEach(function (amount) {
-        amount.addEventListener("click", function () {
-          givingAmounts.forEach(function (a) { a.classList.remove("is-active"); });
-          amount.classList.add("is-active");
-
-          if (amount.dataset.custom !== undefined) {
-            if (givingCustom) givingCustom.classList.remove("hidden");
-            if (givingCustomAmount) givingCustomAmount.focus();
-            return;
-          }
-
-          if (givingCustom) givingCustom.classList.add("hidden");
-          selectedAmount = Number(amount.dataset.amount);
-        });
-      });
-
-      // Handle custom amount input
-      if (givingCustomAmount) {
-        givingCustomAmount.addEventListener("input", function () {
-          selectedAmount = Number(givingCustomAmount.value) || 0;
-        });
-      }
-
-      // Gift frequency selection
-      givingFrequencies.forEach(function (option) {
-        option.addEventListener("click", function () {
-          givingFrequencies.forEach(function (o) { o.classList.remove("is-active"); });
-          option.classList.add("is-active");
-        });
-      });
-
-      // Format card number input
-      var cardNumber = document.getElementById("givingCardNumber");
-      if (cardNumber) {
-        cardNumber.addEventListener("input", function () {
-          var value = cardNumber.value.replace(/\D/g, "").slice(0, 16);
-          cardNumber.value = value.replace(/(\d{4})(?=\d)/g, "$1 ");
-        });
-      }
-
-      // Format expiry input
-      var expiry = document.getElementById("givingExpiry");
-      if (expiry) {
-        expiry.addEventListener("input", function () {
-          var value = expiry.value.replace(/\D/g, "").slice(0, 4);
-          if (value.length > 2) {
-            value = value.slice(0, 2) + "/" + value.slice(2);
-          }
-          expiry.value = value;
-        });
-      }
-
-      // Limit CVC to 4 digits
-      var cvc = document.getElementById("givingCvc");
-      if (cvc) {
-        cvc.addEventListener("input", function () {
-          cvc.value = cvc.value.replace(/\D/g, "").slice(0, 4);
-        });
-      }
-
-      // Handle card form submission
-      if (givingCardForm) {
-        givingCardForm.addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          var email = document.getElementById("givingEmail");
-          var name = document.getElementById("givingName");
-
-          if (
-            selectedAmount <= 0 ||
-            !name.value.trim() ||
-            !cardNumber.value.trim() ||
-            !expiry.value.trim() ||
-            !cvc.value.trim() ||
-            !email.value.trim()
-          ) {
-            if (givingMessage) {
-              givingMessage.textContent = "Please complete all required fields.";
-              givingMessage.style.color = "#c0392b";
-            }
-            return;
-          }
-
-          var frequency = document.querySelector(".giving-frequency-option.is-active");
-          var freqValue = frequency ? frequency.dataset.frequency : "once";
-
-          if (givingMessage) {
-            var person = name.value.trim();
-            givingMessage.textContent = "Thank you, " + person + "! Your $" + selectedAmount + (freqValue === "monthly" ? " monthly " : " ") + "gift has been received. A receipt will be emailed to you.";
-            givingMessage.style.color = "#38745b";
-          }
-
-          givingCardForm.reset();
-          givingAmounts.forEach(function (a) { a.classList.remove("is-active"); });
-          givingAmounts[0].classList.add("is-active");
-          givingFrequencies.forEach(function (o) { o.classList.remove("is-active"); });
-          givingFrequencies[0].classList.add("is-active");
-          if (givingCustom) givingCustom.classList.add("hidden");
-          selectedAmount = 25;
-        });
-      }
-
-      // Set current year
-      var currentYear = document.getElementById("currentYear");
-      if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
-      }
-    })();
-  </script>
 </body>
 </html>
