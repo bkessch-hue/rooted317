@@ -267,6 +267,26 @@
       line-height: 1.8;
     }
 
+    /* Text-only profile card (leader with no portrait) — centered & balanced */
+    .profile-card.no-portrait {
+      display: block;
+      text-align: center;
+    }
+
+    .profile-card.no-portrait .profile-content {
+      align-items: center;
+      margin-inline: auto;
+      max-width: 640px;
+      min-height: 0;
+      padding: 8px 0;
+      text-align: center;
+    }
+
+    .profile-card.no-portrait .profile-content h2,
+    .profile-card.no-portrait .profile-content p {
+      text-align: center;
+    }
+
     /* Family Members Grid */
     .family-section-heading {
       text-align: center;
@@ -575,8 +595,6 @@
       {
         name: "Pastor Antonio Mansogo",
         role: "Senior Pastor / Lead Pastor",
-        image: "images/pastor-antonio.jpg",
-        imagePosition: "center top",
         bio: "Pastor Antonio Mansogo is the founder and Senior Pastor of ROOTED317 Church. With a heart for evangelism, discipleship, and community transformation, he is dedicated to raising a generation rooted in Christ. His ministry is marked by passionate preaching, pastoral care, and a deep commitment to seeing lives changed by the Gospel."
       },
       {
@@ -607,9 +625,18 @@
 
     function createProfileCard(member, index) {
       const reverse = index % 2 !== 0;
+      const hasImage = !!member.image;
       const card = document.createElement("div");
-      card.className = `profile-card fade-up${reverse ? " reverse" : ""}`;
-      card.innerHTML = `
+      card.className = `profile-card fade-up${reverse ? " reverse" : ""}${hasImage ? "" : " no-portrait"}`;
+      const content = `
+        <div class="profile-content">
+          <p class="profile-role">${member.role}</p>
+          <h2>${member.name}</h2>
+          <p>${member.bio}</p>
+        </div>
+      `;
+      card.innerHTML = hasImage
+        ? `
         <div class="profile-portrait">
           <img
             src="${member.image}"
@@ -617,13 +644,8 @@
             style="object-position: ${member.imagePosition || "center top"}"
             loading="lazy"
           />
-        </div>
-        <div class="profile-content">
-          <p class="profile-role">${member.role}</p>
-          <h2>${member.name}</h2>
-          <p>${member.bio}</p>
-        </div>
-      `;
+        </div>${content}`
+        : content;
       return card;
     }
 
