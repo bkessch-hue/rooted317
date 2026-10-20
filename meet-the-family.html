@@ -267,6 +267,17 @@
       line-height: 1.8;
     }
 
+    .profile-scripture {
+      color: var(--gold) !important;
+      font-family: "Playfair Display", serif;
+      font-size: 0.82rem !important;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-top: 20px;
+      text-align: center;
+    }
+
     /* Text-only profile card (leader with no portrait) — centered & balanced */
     .profile-card.no-portrait {
       display: block;
@@ -594,10 +605,10 @@
     const pastors = [
       {
         name: "Pastor Ruth Mansogo",
-        role: "First Lady / Ministry Leader",
         image: "images/pastor-ruth.jpg",
         imagePosition: "center top",
-        bio: "Pastor Ruth Mansogo serves alongside her husband as a Ministry Leader and First Lady of ROOTED317 Church. With a warm and compassionate spirit, she is passionate about women's ministry, mentorship, and building a welcoming community where every person feels valued and loved. Her leadership reflects grace, faith, and a heart for service."
+        bio: "Pastor Ruth Mansogo serves alongside her husband as a Ministry Leader and First Lady of ROOTED317 Church. With a warm and compassionate spirit, she is passionate about women's ministry, mentorship, and building a welcoming community where every person feels valued and loved. Her leadership reflects grace, faith, and a heart for service.",
+        scripture: "Ephesians 3:17 NKJV"
       }
     ];
 
@@ -625,9 +636,10 @@
       card.className = `profile-card fade-up${reverse ? " reverse" : ""}${hasImage ? "" : " no-portrait"}`;
       const content = `
         <div class="profile-content">
-          <p class="profile-role">${member.role}</p>
+          ${member.role ? `<p class="profile-role">${member.role}</p>` : ""}
           <h2>${member.name}</h2>
           <p>${member.bio}</p>
+          ${member.scripture ? `<p class="profile-scripture">${member.scripture}</p>` : ""}
         </div>
       `;
       card.innerHTML = hasImage
