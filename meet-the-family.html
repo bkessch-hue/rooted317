@@ -267,26 +267,19 @@
       line-height: 1.8;
     }
 
-    .profile-scripture {
-      color: var(--gold) !important;
-      font-family: "Playfair Display", serif;
-      font-size: 0.85rem !important;
-      font-style: italic;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .profile-scripture-ref {
-      color: var(--gold) !important;
+    /* Ruth biography — plain white, left-aligned, regular font, exact line breaks */
+    .profile-bio-block {
+      color: var(--white) !important;
       font-family: "DM Sans", sans-serif;
-      font-size: 0.78rem !important;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-top: 8px;
-      text-align: center;
-      text-transform: uppercase;
+      font-size: 0.95rem !important;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: normal;
+      line-height: 1.8;
+      margin-top: 0;
+      overflow-wrap: break-word;
+      text-align: left;
+      white-space: pre-line;
     }
 
     /* Text-only profile card (leader with no portrait) — centered & balanced */
@@ -618,9 +611,7 @@
         name: "Pastor Ruth Mansogo",
         image: "images/pastor-ruth.jpg",
         imagePosition: "center top",
-        bio: "Pastor Ruth is the founder of Rooted317. She is dedicated to raising a generation rooted in Christ.",
-        scripture: "“that Christ may dwell in your hearts through faith; that you, being rooted and grounded in love,”",
-        scriptureRef: "Ephesians 3:17 NKJV"
+        bioBlock: "Pastor Ruth is the founder of\nRooted317\nShe is dedicated to raising a generation\nrooted in Christ.\n“that Christ may dwell in your hearts\nthrough faith; that you, being rooted\nand grounded in love,”\nEphesians 3:17 NKJV"
       }
     ];
 
@@ -650,9 +641,7 @@
         <div class="profile-content">
           ${member.role ? `<p class="profile-role">${member.role}</p>` : ""}
           <h2>${member.name}</h2>
-          <p>${member.bio}</p>
-          ${member.scripture ? `<p class="profile-scripture">${member.scripture}</p>` : ""}
-          ${member.scriptureRef ? `<p class="profile-scripture-ref">${member.scriptureRef}</p>` : ""}
+          ${member.bioBlock ? `<p class="profile-bio-block">${member.bioBlock}</p>` : `<p>${member.bio}</p>`}
         </div>
       `;
       card.innerHTML = hasImage
