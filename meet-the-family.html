@@ -270,12 +270,23 @@
     .profile-scripture {
       color: var(--gold) !important;
       font-family: "Playfair Display", serif;
-      font-size: 0.82rem !important;
+      font-size: 0.85rem !important;
       font-style: italic;
       font-weight: 600;
       letter-spacing: 0.04em;
       margin-top: 20px;
       text-align: center;
+    }
+
+    .profile-scripture-ref {
+      color: var(--gold) !important;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.78rem !important;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-top: 8px;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     /* Text-only profile card (leader with no portrait) — centered & balanced */
@@ -607,8 +618,9 @@
         name: "Pastor Ruth Mansogo",
         image: "images/pastor-ruth.jpg",
         imagePosition: "center top",
-        bio: "Pastor Ruth Mansogo serves alongside her husband as a Ministry Leader and First Lady of ROOTED317 Church. With a warm and compassionate spirit, she is passionate about women's ministry, mentorship, and building a welcoming community where every person feels valued and loved. Her leadership reflects grace, faith, and a heart for service.",
-        scripture: "Ephesians 3:17 NKJV"
+        bio: "Pastor Ruth is the founder of Rooted317. She is dedicated to raising a generation rooted in Christ.",
+        scripture: "“that Christ may dwell in your hearts through faith; that you, being rooted and grounded in love,”",
+        scriptureRef: "Ephesians 3:17 NKJV"
       }
     ];
 
@@ -640,6 +652,7 @@
           <h2>${member.name}</h2>
           <p>${member.bio}</p>
           ${member.scripture ? `<p class="profile-scripture">${member.scripture}</p>` : ""}
+          ${member.scriptureRef ? `<p class="profile-scripture-ref">${member.scriptureRef}</p>` : ""}
         </div>
       `;
       card.innerHTML = hasImage
