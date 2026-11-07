@@ -1019,6 +1019,60 @@ h3 {
   color: var(--primary);
 }
 
+.ministry-video-feature {
+  background:
+    linear-gradient(145deg, rgba(185, 133, 69, 0.13), transparent 42%),
+    rgba(7, 20, 24, 0.78);
+  border: 1px solid rgba(201, 154, 82, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.32);
+  margin-top: clamp(36px, 6vw, 64px);
+  padding: clamp(18px, 4vw, 38px);
+}
+
+.ministry-video-heading {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.ministry-video-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.ministry-video-heading h3 {
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  line-height: 1.15;
+}
+
+.ministry-video-player {
+  aspect-ratio: 832 / 464;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+  margin-inline: auto;
+  max-width: 900px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ministry-video-player video {
+  background: #000;
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ministry-video-feature {
+    margin-inline: -24px;
+    padding: 18px;
+  }
+}
+
 /* Sermons */
 
 .heading-row {
